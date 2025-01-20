@@ -113,7 +113,7 @@ const FavouriteRecipes: FC = () => {
 
     const recipesComponent = (
         <div className="flex flex-row flex-wrap gap-10 mobile:gap-0 mobile:justify-between">
-            {recipes.map((recipe: RecipeT) => (
+            {recipes.map((recipe: RecipeT, index: number) => (
                 <BigCard
                     key={recipe.id}
                     title={recipe.name}
@@ -121,7 +121,9 @@ const FavouriteRecipes: FC = () => {
                     time={recipe.time}
                     path={`/recipes/${recipe.id}`}
                     isDarkMode={isDarkMode}
-                    className="w-40 h-[300px] bg-white rounded-xl relative cursor-pointer transition-all duration-200 hover:opacity-80 mobile:flex-shrink-0"
+                    className={`w-40 h-[300px] bg-white rounded-xl relative cursor-pointer transition-all duration-200 hover:opacity-80 mobile:flex-shrink-0 
+                        ${index !== 0 && index !== 1 && "mobile:mt-10"}
+                    `}
                     titleClassName="text-xs"
                 />
             ))}
