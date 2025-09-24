@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     colors: {
       primary: "#ff9d00",
+      white: "#ffffff",
     },
     screens: {
       desktop: { min: "1100px" },

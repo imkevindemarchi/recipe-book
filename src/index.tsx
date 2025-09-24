@@ -1,5 +1,6 @@
 import React, { ReactNode, StrictMode } from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router";
 
 // Assets
 import "./index.css";
@@ -13,7 +14,9 @@ const root = ReactDOM.createRoot(
 
 const app: ReactNode = (
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>
 );
 
