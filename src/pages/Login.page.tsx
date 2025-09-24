@@ -26,6 +26,7 @@ import { Button, Input, LiquidGlass } from "../components";
 
 // Contexts
 import { PopupContext, TPopupContext } from "../providers/popup.provider";
+import { LoaderContext, TLoaderContext } from "../providers/loader.provider";
 
 // Types
 import { THTTPResponse, TLoginPayload } from "../types";
@@ -52,6 +53,9 @@ const Login: FC = () => {
   const { onOpen: openPopup }: TPopupContext = useContext(
     PopupContext
   ) as TPopupContext;
+  const { setState: setIsLoading }: TLoaderContext = useContext(
+    LoaderContext
+  ) as TLoaderContext;
 
   setPageTitle("Log In");
 
@@ -72,7 +76,8 @@ const Login: FC = () => {
     else if (email.trim() === "") openPopup("Inserire l'e-mail", "warning");
     else if (password.trim() === "")
       openPopup("Inserire la password", "warning");
-    else
+    else {
+      setIsLoading(true);
       try {
         const isEmailValid: boolean = validateEmail(email);
 
@@ -93,6 +98,8 @@ const Login: FC = () => {
       } catch (error) {
         console.error("🚀 ~ onSubmit - error:", error);
       }
+      setIsLoading(false);
+    }
   }
 
   function onPasswordTypeChange() {
