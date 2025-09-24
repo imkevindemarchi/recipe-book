@@ -8,6 +8,9 @@ import "./index.css";
 // Components
 import App from "./App";
 
+// Providers
+import { PopupProvider } from "./providers";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -15,7 +18,9 @@ const root = ReactDOM.createRoot(
 const app: ReactNode = (
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <PopupProvider>
+        <App />
+      </PopupProvider>
     </BrowserRouter>
   </StrictMode>
 );
