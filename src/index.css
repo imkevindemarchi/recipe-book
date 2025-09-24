@@ -25,3 +25,13 @@ input[type="file"] {
 ::-webkit-scrollbar {
   display: none;
 }
+
+input::placeholder {
+  color: #ffffff73;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important; /* forza lo sfondo */
+  -webkit-text-fill-color: #ffffff !important; 
+  transition: background-color 5000s ease-in-out 0s; /* hack per mantenere il colore */
+}
