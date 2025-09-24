@@ -56,8 +56,14 @@ const Login: FC = () => {
 
   const title: ReactNode = (
     <div className="flex flex-row items-center">
-      <img src={logoImg} className="w-32" alt="" />
-      <span className="font-bold text-white text-[3em]">Benvenuto</span>
+      <img
+        src={logoImg}
+        className="w-32 mobile:w-28"
+        alt="Impossibile visualizzare l'immagine."
+      />
+      <span className="font-bold text-white text-[3em] mobile:text-3xl">
+        Benvenuto
+      </span>
     </div>
   );
 
@@ -113,24 +119,28 @@ const Login: FC = () => {
     </form>
   );
 
+  const register: ReactNode = (
+    <span className="text-white opacity-80 text-sm text-center">
+      Non hai un account?{" "}
+      <span
+        onClick={onGoToRegisterPage}
+        className="text-primary cursor-pointer hover:opacity-50 transition-all duration-300"
+      >
+        Registrati
+      </span>
+    </span>
+  );
+
   return (
     <div
       style={{ backgroundImage: `url("${wallpaperImg}")` }}
-      className="w-full h-[100vh] bg-cover flex items-center justify-center flex-col gap-5"
+      className="w-full h-[100vh] mobile:h-[110vh] mobile:justify-start mobile:pt-36 bg-cover flex items-center justify-center flex-col gap-5"
     >
       {title}
       {description}
       <LiquidGlass className="px-10 py-5 flex flex-col gap-5">
         {form}
-        <span className="text-white opacity-80 text-sm text-center">
-          Non hai un account?{" "}
-          <span
-            onClick={onGoToRegisterPage}
-            className="text-primary cursor-pointer hover:opacity-50 transition-all duration-300"
-          >
-            Registrati
-          </span>
-        </span>
+        {register}
       </LiquidGlass>
     </div>
   );
