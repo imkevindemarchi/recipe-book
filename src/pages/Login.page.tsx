@@ -1,5 +1,4 @@
 import React, { ChangeEvent, FC, FormEvent, ReactNode, useState } from "react";
-import { NavigateFunction, useNavigate } from "react-router";
 
 // Assets
 import wallpaperImg from "../assets/images/login-wallpaper.jpg";
@@ -32,7 +31,6 @@ const DEFAULT_FORM_DATA: IFormData = {
 const Login: FC = () => {
   const [formData, setFormData] = useState<IFormData>(DEFAULT_FORM_DATA);
   const [passwordType, setPasswordType] = useState<TPasswordType>("password");
-  const navigate: NavigateFunction = useNavigate();
 
   setPageTitle("Log In");
 
@@ -48,10 +46,6 @@ const Login: FC = () => {
 
   function onPasswordTypeChange() {
     setPasswordType(passwordType === "password" ? "text" : "password");
-  }
-
-  function onGoToRegisterPage() {
-    navigate("/register");
   }
 
   const title: ReactNode = (
@@ -119,18 +113,6 @@ const Login: FC = () => {
     </form>
   );
 
-  const register: ReactNode = (
-    <span className="text-white opacity-80 text-sm text-center">
-      Non hai un account?{" "}
-      <span
-        onClick={onGoToRegisterPage}
-        className="text-primary cursor-pointer hover:opacity-50 transition-all duration-300"
-      >
-        Registrati
-      </span>
-    </span>
-  );
-
   return (
     <div
       style={{ backgroundImage: `url("${wallpaperImg}")` }}
@@ -140,7 +122,6 @@ const Login: FC = () => {
       {description}
       <LiquidGlass className="px-10 py-5 flex flex-col gap-5">
         {form}
-        {register}
       </LiquidGlass>
     </div>
   );
