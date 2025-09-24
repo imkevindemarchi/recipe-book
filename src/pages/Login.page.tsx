@@ -1,4 +1,8 @@
 import React, { ChangeEvent, FC, FormEvent, ReactNode, useState } from "react";
+import { NavigateFunction, useNavigate } from "react-router";
+
+// Api
+import { AUTH_API } from "../api";
 
 // Assets
 import wallpaperImg from "../assets/images/login-wallpaper.jpg";
@@ -13,8 +17,11 @@ import {
 // Components
 import { Button, Input, LiquidGlass } from "../components";
 
+// Types
+import { THTTPResponse, TLoginPayload } from "../types";
+
 // Utils
-import { setPageTitle } from "../utils";
+import { setPageTitle, validateEmail } from "../utils";
 
 interface IFormData {
   email: string;
@@ -31,6 +38,7 @@ const DEFAULT_FORM_DATA: IFormData = {
 const Login: FC = () => {
   const [formData, setFormData] = useState<IFormData>(DEFAULT_FORM_DATA);
   const [passwordType, setPasswordType] = useState<TPasswordType>("password");
+  const navigate: NavigateFunction = useNavigate();
 
   setPageTitle("Log In");
 
@@ -40,8 +48,31 @@ const Login: FC = () => {
     });
   }
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    const email: string = formData.email;
+    const password: string = formData.password;
+
+    try {
+      const isEmailValid: boolean = validateEmail(email);
+      if (isEmailValid) {
+        const payload: TLoginPayload = {
+          email,
+          password,
+        };
+
+        await Promise.resolve(
+          AUTH_API.login(payload).then((response: THTTPResponse) => {
+            if (response.hasSuccess) {
+              navigate("/admin");
+            } else console.log("ERRORE");
+          })
+        );
+      }
+    } catch (error) {
+      console.error("🚀 ~ onSubmit - error:", error);
+    }
   }
 
   function onPasswordTypeChange() {
