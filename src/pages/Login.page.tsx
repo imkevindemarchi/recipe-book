@@ -1,4 +1,11 @@
-import React, { ChangeEvent, FC, FormEvent, ReactNode, useState } from "react";
+import React, {
+  ChangeEvent,
+  FC,
+  FormEvent,
+  ReactNode,
+  useContext,
+  useState,
+} from "react";
 import { NavigateFunction, useNavigate } from "react-router";
 
 // Api
@@ -16,6 +23,9 @@ import {
 
 // Components
 import { Button, Input, LiquidGlass } from "../components";
+
+// Contexts
+import { PopupContext, TPopupContext } from "../providers/popup.provider";
 
 // Types
 import { THTTPResponse, TLoginPayload } from "../types";
@@ -39,6 +49,9 @@ const Login: FC = () => {
   const [formData, setFormData] = useState<IFormData>(DEFAULT_FORM_DATA);
   const [passwordType, setPasswordType] = useState<TPasswordType>("password");
   const navigate: NavigateFunction = useNavigate();
+  const { onOpen: openPopup }: TPopupContext = useContext(
+    PopupContext
+  ) as TPopupContext;
 
   setPageTitle("Log In");
 
@@ -54,25 +67,32 @@ const Login: FC = () => {
     const email: string = formData.email;
     const password: string = formData.password;
 
-    try {
-      const isEmailValid: boolean = validateEmail(email);
-      if (isEmailValid) {
-        const payload: TLoginPayload = {
-          email,
-          password,
-        };
+    if (email.trim() === "" && password.trim() === "")
+      openPopup("Inserire l'e-mail e la password", "warning");
+    else if (email.trim() === "") openPopup("Inserire l'e-mail", "warning");
+    else if (password.trim() === "")
+      openPopup("Inserire la password", "warning");
+    else
+      try {
+        const isEmailValid: boolean = validateEmail(email);
 
-        await Promise.resolve(
-          AUTH_API.login(payload).then((response: THTTPResponse) => {
-            if (response.hasSuccess) {
-              navigate("/admin");
-            } else console.log("ERRORE");
-          })
-        );
+        if (isEmailValid) {
+          const payload: TLoginPayload = {
+            email,
+            password,
+          };
+
+          await Promise.resolve(
+            AUTH_API.login(payload).then((response: THTTPResponse) => {
+              if (response.hasSuccess) {
+                navigate("/admin");
+              }
+            })
+          );
+        } else openPopup("L'e-mail inserita non è valida", "warning");
+      } catch (error) {
+        console.error("🚀 ~ onSubmit - error:", error);
       }
-    } catch (error) {
-      console.error("🚀 ~ onSubmit - error:", error);
-    }
   }
 
   function onPasswordTypeChange() {

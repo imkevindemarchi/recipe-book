@@ -1,11 +1,21 @@
 import React, { FC, ReactNode } from "react";
 
+// Components
+import Popup from "./Popup.component";
+
 interface IProps {
   children: ReactNode;
 }
 
 const Layout: FC<IProps> = ({ children }) => {
-  return <div>{children}</div>;
+  const popup: ReactNode = <Popup />;
+
+  return (
+    <div>
+      {children}
+      {popup}
+    </div>
+  );
 };
 
 export default Layout;
