@@ -7,6 +7,7 @@ import React, {
   useState,
 } from "react";
 import { NavigateFunction, useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
 
 // Api
 import { AUTH_API } from "../api";
@@ -56,6 +57,7 @@ const Login: FC = () => {
   const { setState: setIsLoading }: TLoaderContext = useContext(
     LoaderContext
   ) as TLoaderContext;
+  const { t } = useTranslation();
 
   setPageTitle("Log In");
 
@@ -72,10 +74,9 @@ const Login: FC = () => {
     const password: string = formData.password;
 
     if (email.trim() === "" && password.trim() === "")
-      openPopup("Inserire l'e-mail e la password", "warning");
-    else if (email.trim() === "") openPopup("Inserire l'e-mail", "warning");
-    else if (password.trim() === "")
-      openPopup("Inserire la password", "warning");
+      openPopup(t("enterEmailAndPassword"), "warning");
+    else if (email.trim() === "") openPopup(t("enterEmail"), "warning");
+    else if (password.trim() === "") openPopup(t("enterPassword"), "warning");
     else {
       setIsLoading(true);
       try {
@@ -94,7 +95,7 @@ const Login: FC = () => {
               }
             })
           );
-        } else openPopup("L'e-mail inserita non è valida", "warning");
+        } else openPopup(t("invalidEnteredEmail"), "warning");
       } catch (error) {
         console.error("🚀 ~ onSubmit - error:", error);
       }
@@ -108,13 +109,9 @@ const Login: FC = () => {
 
   const title: ReactNode = (
     <div className="flex flex-row items-center">
-      <img
-        src={logoImg}
-        className="w-32 mobile:w-28"
-        alt="Impossibile visualizzare l'immagine."
-      />
+      <img src={logoImg} className="w-32 mobile:w-28" alt={t("imgNotFound")} />
       <span className="font-bold text-white text-[3em] mobile:text-3xl">
-        Benvenuto
+        {t("welcome")}
       </span>
     </div>
   );
@@ -122,7 +119,7 @@ const Login: FC = () => {
   const description: ReactNode = (
     <div className="flex justify-center items-center">
       <span className="text-white opacity-70 text-base">
-        Accedi al tuo ricettario
+        {t("logInYourRecipeBook")}
       </span>
     </div>
   );
@@ -133,7 +130,7 @@ const Login: FC = () => {
         <Input
           name="email"
           autoFocus
-          placeholder="E-mail"
+          placeholder={t("email")}
           startIcon={<EmailIcon className="text-white text-2xl" />}
           value={formData.email}
           onChange={(event: ChangeEvent<HTMLInputElement>) =>
@@ -145,7 +142,7 @@ const Login: FC = () => {
         <Input
           type={passwordType}
           name="password"
-          placeholder="Password"
+          placeholder={t("password")}
           startIcon={<LockIcon className="text-white text-2xl" />}
           endIcon={
             <LiquidGlass
@@ -167,7 +164,7 @@ const Login: FC = () => {
           autoComplete="current-password"
         />
       </div>
-      <Button type="submit" text="Accedi" />
+      <Button type="submit" text={t("logIn")} />
     </form>
   );
 

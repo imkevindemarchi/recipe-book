@@ -1,0 +1,14 @@
+{
+  "translation": {
+    "imgNotFound": "Unable to display the image.",
+    "email": "E-mail",
+    "welcome": "Welcome",
+    "logInYourRecipeBook": "Log-in to your recipe book",
+    "password": "Password",
+    "logIn": "Log-in",
+    "enterEmailAndPassword": "Enter your email and password",
+    "enterEmail": "Enter the e-mail",
+    "enterPassword": "Enter the password",
+    "invalidEnteredEmail": "The email you entered is not valid"
+  }
+}

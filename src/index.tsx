@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router";
 
 // Assets
 import "./index.css";
+import "./i18n.ts";
 
 // Components
 import App from "./App";
