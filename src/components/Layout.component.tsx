@@ -1,21 +1,47 @@
 import React, { FC, ReactNode } from "react";
+import { useLocation } from "react-router";
+
+// Assets
+import wallpaperImg from "../assets/images/login-wallpaper.jpg";
 
 // Components
 import Popup from "./Popup.component";
 import Loader from "./Loader.component";
+import Navbar from "./Navbar.component";
 
 interface IProps {
   children: ReactNode;
 }
 
 const Layout: FC<IProps> = ({ children }) => {
+  const { pathname } = useLocation();
+
+  const currentPathSection: string = pathname.split("/")[1];
+
+  const isLoginPage: boolean = currentPathSection === "log-in";
+  const isAdminSection: boolean = currentPathSection === "admin";
+
+  const navbar: ReactNode = <Navbar isAdminSection={isAdminSection} />;
+
   const loader: ReactNode = <Loader />;
 
   const popup: ReactNode = <Popup />;
 
+  const loginLayout: ReactNode = children;
+
+  const layout: ReactNode = (
+    <div
+      style={{ backgroundImage: `url("${wallpaperImg}")` }}
+      className="min-h-[100vh] bg-cover"
+    >
+      {navbar}
+      {children}
+    </div>
+  );
+
   return (
     <div>
-      {children}
+      {isLoginPage ? loginLayout : layout}
       {loader}
       {popup}
     </div>

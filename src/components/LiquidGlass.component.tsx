@@ -6,6 +6,7 @@ interface IProps {
   ref?: RefObject<HTMLDivElement | null>;
   onClick?: () => void;
   noBorder?: boolean;
+  borderRadius?: number;
 }
 
 const LiquidGlass: FC<IProps> = ({
@@ -14,6 +15,7 @@ const LiquidGlass: FC<IProps> = ({
   onClick,
   noBorder = false,
   children,
+  borderRadius = 50,
 }) => {
   return (
     <div
@@ -22,7 +24,7 @@ const LiquidGlass: FC<IProps> = ({
       style={{
         background: "rgba(255, 255, 255, 0.1)",
         border: noBorder ? "" : "1px solid rgba(255, 255, 255, 0.25)",
-        borderRadius: 50,
+        borderRadius,
         boxShadow: "0 8px 20px rgba(0, 0, 0, 0.10)",
         backdropFilter: "blur(2px)",
       }}

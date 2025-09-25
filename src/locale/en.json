@@ -9,6 +9,11 @@
     "enterEmailAndPassword": "Enter your email and password",
     "enterEmail": "Enter the e-mail",
     "enterPassword": "Enter the password",
-    "invalidEnteredEmail": "The email you entered is not valid"
+    "invalidEnteredEmail": "The email you entered is not valid",
+    "recipes": "Recipes",
+    "ingredients": "Ingredients",
+    "categories": "Categories",
+    "italian": "Italian",
+    "english": "English"
   }
 }
