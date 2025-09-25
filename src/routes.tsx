@@ -7,6 +7,7 @@ export type TRoute = {
   path: string;
   name: string;
   element: ReactNode;
+  isHidden?: boolean;
 };
 
 export const ROUTES: TRoute[] = [
@@ -14,5 +15,66 @@ export const ROUTES: TRoute[] = [
     path: "/log-in",
     name: "login",
     element: <Login />,
+    isHidden: true,
+  },
+];
+
+export const ADMIN_ROUTES: TRoute[] = [
+  {
+    path: "/admin",
+    name: "dashboard",
+    element: <></>,
+    isHidden: true,
+  },
+  {
+    path: "/admin/recipes",
+    name: "recipes",
+    element: <></>,
+  },
+  {
+    path: "/admin/recipes/new",
+    name: "recipes",
+    element: <></>,
+    isHidden: true,
+  },
+  {
+    path: "/admin/recipes/edit/:recipeId",
+    name: "recipes",
+    element: <></>,
+    isHidden: true,
+  },
+  {
+    path: "/admin/ingredients",
+    name: "ingredients",
+    element: <></>,
+  },
+  {
+    path: "/admin/ingredients/new",
+    name: "ingredient",
+    element: <></>,
+    isHidden: true,
+  },
+  {
+    path: "/admin/ingredients/edit/:ingredientId",
+    name: "ingredient",
+    element: <></>,
+    isHidden: true,
+  },
+  {
+    path: "/admin/categories",
+    name: "categories",
+    element: <></>,
+  },
+  {
+    path: "/admin/categories/new",
+    name: "category",
+    element: <></>,
+    isHidden: true,
+  },
+  {
+    path: "/admin/categories/edit/:categoryId",
+    name: "category",
+    element: <></>,
+    isHidden: true,
   },
 ];
