@@ -8,6 +8,7 @@ import wallpaperImg from "../assets/images/login-wallpaper.jpg";
 import Popup from "./Popup.component";
 import Loader from "./Loader.component";
 import Navbar from "./Navbar.component";
+import Sidebar from "./Sidebar.component";
 
 interface IProps {
   children: ReactNode;
@@ -23,6 +24,8 @@ const Layout: FC<IProps> = ({ children }) => {
 
   const navbar: ReactNode = <Navbar isAdminSection={isAdminSection} />;
 
+  const sidebar: ReactNode = <Sidebar isAdminSection={isAdminSection} />;
+
   const loader: ReactNode = <Loader />;
 
   const popup: ReactNode = <Popup />;
@@ -35,6 +38,7 @@ const Layout: FC<IProps> = ({ children }) => {
       className="min-h-[100vh] bg-cover"
     >
       {navbar}
+      {sidebar}
       {children}
     </div>
   );
