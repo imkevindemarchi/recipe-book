@@ -10,7 +10,12 @@ import "./i18n.ts";
 import App from "./App";
 
 // Providers
-import { AuthProvider, LoaderProvider, PopupProvider } from "./providers";
+import {
+  AuthProvider,
+  LoaderProvider,
+  PopupProvider,
+  SidebarProvider,
+} from "./providers";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -22,7 +27,9 @@ const app: ReactNode = (
       <PopupProvider>
         <LoaderProvider>
           <AuthProvider>
-            <App />
+            <SidebarProvider>
+              <App />
+            </SidebarProvider>
           </AuthProvider>
         </LoaderProvider>
       </PopupProvider>

@@ -7,6 +7,7 @@ interface IProps {
   onClick?: () => void;
   noBorder?: boolean;
   borderRadius?: number;
+  borderBottomRadius?: number;
 }
 
 const LiquidGlass: FC<IProps> = ({
@@ -16,6 +17,7 @@ const LiquidGlass: FC<IProps> = ({
   noBorder = false,
   children,
   borderRadius = 50,
+  borderBottomRadius,
 }) => {
   return (
     <div
@@ -27,6 +29,8 @@ const LiquidGlass: FC<IProps> = ({
         borderRadius,
         boxShadow: "0 8px 20px rgba(0, 0, 0, 0.10)",
         backdropFilter: "blur(2px)",
+        borderBottomLeftRadius: borderBottomRadius ?? borderRadius,
+        borderBottomRightRadius: borderBottomRadius ?? borderRadius,
       }}
       className={`transition-all duration-300 ${className}`}
     >
