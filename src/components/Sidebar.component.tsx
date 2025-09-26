@@ -40,6 +40,7 @@ const Sidebar: FC<IProps> = ({ isAdminSection }) => {
 
   function goToHome(): void {
     navigate(isAdminSection ? "/admin" : "/");
+    onSidebarStateChange();
   }
 
   function onRouteChange(path: string): void {
