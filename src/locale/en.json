@@ -14,6 +14,7 @@
     "ingredients": "Ingredients",
     "categories": "Categories",
     "italian": "Italian",
-    "english": "English"
+    "english": "English",
+    "logoutError": "Unable to log out"
   }
 }
