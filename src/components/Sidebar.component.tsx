@@ -2,6 +2,9 @@ import React, { FC, ReactNode, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { NavigateFunction, useLocation, useNavigate } from "react-router";
 
+// Api
+import { AUTH_API } from "../api";
+
 // Assets
 import logoImg from "../assets/images/logo.png";
 import { LoginIcon, LogoutIcon } from "../assets/icons";
@@ -13,12 +16,16 @@ import LanguageSelector from "./LanguageSelector.component";
 
 // Contexts
 import { SidebarContext, TSidebarContext } from "../providers/sidebar.provider";
+import { LoaderContext, TLoaderContext } from "../providers/loader.provider";
+import { AuthContext, TAuthContext } from "../providers/auth.provider";
+import { PopupContext, TPopupContext } from "../providers/popup.provider";
 
 // Types
 import { ADMIN_ROUTES, ROUTES, TRoute } from "../routes";
+import { THTTPResponse } from "../types";
 
 // Utils
-import { setToStorage } from "../utils";
+import { removeFromStorage, setToStorage } from "../utils";
 
 interface IProps {
   isAdminSection: boolean;
@@ -34,6 +41,15 @@ const Sidebar: FC<IProps> = ({ isAdminSection }) => {
     useContext(SidebarContext) as TSidebarContext;
   const navigate: NavigateFunction = useNavigate();
   const { pathname } = useLocation();
+  const { setState: setIsLoading }: TLoaderContext = useContext(
+    LoaderContext
+  ) as TLoaderContext;
+  const { setIsUserAuthenticated }: TAuthContext = useContext(
+    AuthContext
+  ) as TAuthContext;
+  const { onOpen: openPopup }: TPopupContext = useContext(
+    PopupContext
+  ) as TPopupContext;
 
   const currentPaths: string[] = pathname.split("/");
   const currentPathSection: string = currentPaths[isAdminSection ? 2 : 1];
@@ -51,6 +67,26 @@ const Sidebar: FC<IProps> = ({ isAdminSection }) => {
   function onLanguageChange(countryCode: string): void {
     changeLanguage(countryCode);
     setToStorage("language", countryCode);
+  }
+
+  async function onLogout(): Promise<void> {
+    setIsLoading(true);
+
+    await Promise.resolve(AUTH_API.logout()).then((response: THTTPResponse) => {
+      if (response.hasSuccess) {
+        navigate("/log-in");
+        removeFromStorage("token");
+        setIsUserAuthenticated(false);
+      } else openPopup(t("logoutError"), "error");
+    });
+    onSidebarStateChange();
+
+    setIsLoading(false);
+  }
+
+  function onLogin(): void {
+    navigate("/admin");
+    onSidebarStateChange();
   }
 
   const logo: ReactNode = (
@@ -100,9 +136,9 @@ const Sidebar: FC<IProps> = ({ isAdminSection }) => {
   const loginLogoutIcon: ReactNode = (
     <LiquidGlass className="w-10 h-10 flex justify-center items-center">
       {isAdminSection ? (
-        <LogoutIcon className="w-6 h-6 text-white" />
+        <LogoutIcon onClick={onLogout} className="w-6 h-6 text-white" />
       ) : (
-        <LoginIcon className="w-6 h-6 text-white" />
+        <LoginIcon onClick={onLogin} className="w-6 h-6 text-white" />
       )}
     </LiquidGlass>
   );
