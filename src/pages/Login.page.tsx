@@ -136,7 +136,7 @@ const Login: FC = () => {
           onChange={(event: ChangeEvent<HTMLInputElement>) =>
             onInputChange("email", event.target.value)
           }
-          className="w-[35vh]"
+          className="w-[35vh] mobile:w-full"
           autoComplete="email"
         />
         <Input
@@ -160,7 +160,7 @@ const Login: FC = () => {
           onChange={(event: ChangeEvent<HTMLInputElement>) =>
             onInputChange("password", event.target.value)
           }
-          className="w-[35vh]"
+          className="w-[35vh] mobile:w-full"
           autoComplete="current-password"
         />
       </div>
@@ -175,7 +175,7 @@ const Login: FC = () => {
     >
       {title}
       {description}
-      <LiquidGlass className="px-10 py-5 flex flex-col gap-5">
+      <LiquidGlass className="px-10 py-5 flex flex-col gap-5 mobile:px-5 mobile:w-[90%]">
         {form}
       </LiquidGlass>
     </div>
