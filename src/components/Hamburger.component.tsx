@@ -1,5 +1,8 @@
 import React, { FC } from "react";
 
+// Assets
+import { Z_INDEX } from "../assets/constants";
+
 interface IProps {
   onClick: () => void;
   isActive: boolean;
@@ -11,7 +14,7 @@ const Hamburger: FC<IProps> = ({ onClick, isActive }) => {
   return (
     <button
       onClick={onClick}
-      className="flex flex-col top-7 left-7 justify-around w-10 h-10 fixed z-[999]"
+      className={`flex flex-col top-7 left-7 justify-around w-10 h-10 fixed z-${Z_INDEX.HAMBURGER}`}
     >
       {lines.map((line: number) => (
         <div
