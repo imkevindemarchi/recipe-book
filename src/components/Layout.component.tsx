@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode, useContext } from "react";
 import { useLocation } from "react-router";
 
 // Assets
@@ -9,6 +9,10 @@ import Popup from "./Popup.component";
 import Loader from "./Loader.component";
 import Navbar from "./Navbar.component";
 import Sidebar from "./Sidebar.component";
+import Hamburger from "./Hamburger.component";
+
+// Contexts
+import { SidebarContext, TSidebarContext } from "../providers/sidebar.provider";
 
 interface IProps {
   children: ReactNode;
@@ -16,6 +20,10 @@ interface IProps {
 
 const Layout: FC<IProps> = ({ children }) => {
   const { pathname } = useLocation();
+  const {
+    isOpen: isSidebarOpen,
+    onStateChange: onSidebarStateChange,
+  }: TSidebarContext = useContext(SidebarContext) as TSidebarContext;
 
   const currentPathSection: string = pathname.split("/")[1];
 
@@ -23,6 +31,10 @@ const Layout: FC<IProps> = ({ children }) => {
   const isAdminSection: boolean = currentPathSection === "admin";
 
   const navbar: ReactNode = <Navbar isAdminSection={isAdminSection} />;
+
+  const hamburger: ReactNode = (
+    <Hamburger isActive={isSidebarOpen} onClick={onSidebarStateChange} />
+  );
 
   const sidebar: ReactNode = <Sidebar isAdminSection={isAdminSection} />;
 
@@ -38,6 +50,7 @@ const Layout: FC<IProps> = ({ children }) => {
       className="min-h-[100vh] bg-cover"
     >
       {navbar}
+      {hamburger}
       {sidebar}
       {children}
     </div>

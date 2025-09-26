@@ -107,7 +107,7 @@ const Sidebar: FC<IProps> = ({ isAdminSection }) => {
 
   return (
     <LiquidGlass
-      className={`absolute left-0 w-full h-full flex justify-center items-center flex-col gap-10 ${
+      className={`fixed z-10 left-0 w-full h-full flex justify-center items-center flex-col gap-10 ${
         isOpen ? "top-0 opacity-100" : "top-[-100%] opacity-0"
       }`}
       borderRadius={0}
