@@ -14,7 +14,7 @@ const Hamburger: FC<IProps> = ({ onClick, isActive }) => {
   return (
     <button
       onClick={onClick}
-      className={`flex flex-col top-7 left-7 justify-around w-10 h-10 fixed z-${Z_INDEX.HAMBURGER}`}
+      className={`flex flex-col top-7 left-7 justify-around w-10 h-10 fixed z-${Z_INDEX.HAMBURGER} desktop:hidden`}
     >
       {lines.map((line: number) => (
         <div
