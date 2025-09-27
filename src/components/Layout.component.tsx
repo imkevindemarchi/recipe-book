@@ -10,6 +10,7 @@ import Loader from "./Loader.component";
 import Navbar from "./Navbar.component";
 import Sidebar from "./Sidebar.component";
 import Hamburger from "./Hamburger.component";
+import Breadcrumb from "./Breadcrumb.component";
 
 // Contexts
 import { SidebarContext, TSidebarContext } from "../providers/sidebar.provider";
@@ -44,6 +45,8 @@ const Layout: FC<IProps> = ({ children }) => {
 
   const loginLayout: ReactNode = children;
 
+  const breadcrumb: ReactNode = <Breadcrumb />;
+
   const layout: ReactNode = (
     <div
       style={{ backgroundImage: `url("${wallpaperImg}")` }}
@@ -52,7 +55,12 @@ const Layout: FC<IProps> = ({ children }) => {
       {navbar}
       {hamburger}
       {sidebar}
-      {children}
+      <div
+        className={`px-60 py-10 w-full min-h-[100vh] pt-40 flex flex-col gap-5`}
+      >
+        {breadcrumb}
+        {children}
+      </div>
     </div>
   );
 

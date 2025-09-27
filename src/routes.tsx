@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 
 // Pages
 import { Login } from "./pages";
+import { AdminCategory } from "./pages/admin";
 
 export type TRoute = {
   path: string;
@@ -68,7 +69,7 @@ export const ADMIN_ROUTES: TRoute[] = [
   {
     path: "/admin/categories/new",
     name: "category",
-    element: <></>,
+    element: <AdminCategory />,
     isHidden: true,
   },
   {

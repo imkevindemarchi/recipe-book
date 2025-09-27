@@ -8,6 +8,10 @@ interface IProps {
   noBorder?: boolean;
   borderRadius?: number;
   borderBottomRadius?: number;
+  blur?: number;
+  backgroundColor?: string;
+  borderColor?: string;
+  zIndex?: number;
 }
 
 const LiquidGlass: FC<IProps> = ({
@@ -18,19 +22,24 @@ const LiquidGlass: FC<IProps> = ({
   children,
   borderRadius = 50,
   borderBottomRadius,
+  blur = 2,
+  backgroundColor = "rgba(255, 255, 255, 0.1)",
+  borderColor = "rgba(255, 255, 255, 0.25)",
+  zIndex,
 }) => {
   return (
     <div
       ref={ref}
       onClick={onClick}
       style={{
-        background: "rgba(255, 255, 255, 0.1)",
-        border: noBorder ? "" : "1px solid rgba(255, 255, 255, 0.25)",
+        background: backgroundColor,
+        border: noBorder ? "" : `1px solid ${borderColor}`,
         borderRadius,
         boxShadow: "0 8px 20px rgba(0, 0, 0, 0.10)",
-        backdropFilter: "blur(2px)",
+        backdropFilter: `blur(${blur}px)`,
         borderBottomLeftRadius: borderBottomRadius ?? borderRadius,
         borderBottomRightRadius: borderBottomRadius ?? borderRadius,
+        zIndex,
       }}
       className={`transition-all duration-300 ${className}`}
     >

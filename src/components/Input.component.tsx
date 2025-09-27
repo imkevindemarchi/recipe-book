@@ -3,6 +3,9 @@ import React, { ChangeEvent, FC, ReactElement, useEffect, useRef } from "react";
 // Components
 import LiquidGlass from "./LiquidGlass.component";
 
+// Types
+import { TValidation } from "../utils/validation.util";
+
 type TInputType = "text" | "password";
 
 type TInputAutoComplete = "email" | "current-password";
@@ -18,6 +21,7 @@ interface IProps {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   className?: string;
   autoComplete?: TInputAutoComplete;
+  error?: TValidation;
 }
 
 const Input: FC<IProps> = ({
@@ -31,6 +35,7 @@ const Input: FC<IProps> = ({
   className,
   endIcon,
   autoComplete,
+  error = { isValid: true },
 }) => {
   const inputRef = useRef<HTMLDivElement>(null);
 
@@ -51,28 +56,39 @@ const Input: FC<IProps> = ({
   }, []);
 
   return (
-    <LiquidGlass
-      ref={inputRef}
-      className={`flex flex-col gap-2 px-5 py-3 ${className}`}
-    >
-      <div className="flex flex-row gap-2 items-center">
-        {startIcon}
-        <input
-          value={value}
-          name={name}
-          type={type}
-          autoFocus={autoFocus}
-          style={{ background: "transparent" }}
-          className="border-none outline-none text-base text-white w-full"
-          placeholder={placeholder}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(event)}
-          autoComplete={autoComplete}
-        />
-        {endIcon}
-      </div>
-    </LiquidGlass>
+    <div className="flex flex-col gap-2">
+      <LiquidGlass
+        ref={inputRef}
+        className={`flex flex-col gap-2 px-5 py-3 ${className}`}
+      >
+        <div className="flex flex-row gap-2 items-center">
+          {startIcon}
+          <input
+            value={value}
+            name={name}
+            type={type}
+            autoFocus={autoFocus}
+            style={{ background: "transparent" }}
+            className="border-none outline-none text-base text-white w-full"
+            placeholder={placeholder}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(event)}
+            autoComplete={autoComplete}
+          />
+          {endIcon}
+        </div>
+      </LiquidGlass>
+      {!error?.isValid && (
+        <LiquidGlass
+          className="py-2 px-3"
+          backgroundColor="rgba(255, 41, 0, 0.3)"
+          borderColor="rgba(255, 41, 0, 0.3)"
+        >
+          <span className="text-white">{error?.message}</span>
+        </LiquidGlass>
+      )}
+    </div>
   );
 };
 
