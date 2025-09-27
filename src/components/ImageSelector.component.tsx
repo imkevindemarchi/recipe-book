@@ -32,11 +32,11 @@ const ImageSelector: FC<IProps> = ({ onChange, error }) => {
   const iconButton: ReactNode = (
     <LiquidGlass
       onClick={onIconButtonClick}
-      className="w-52 h-52 flex justify-center items-center flex-col gap-3 cursor-pointer hover:opacity-50"
+      className="w-52 h-52 mobile:w-40 mobile:h-40 flex justify-center items-center flex-col gap-3 cursor-pointer hover:opacity-50"
       borderRadius={100}
     >
-      <ImageIcon className="text-white text-[5em]" />
-      <span className="text-white text-sm">
+      <ImageIcon className="text-white text-[5em] mobile:text-[3em]" />
+      <span className="text-white text-sm mobile:text-[0.8em]">
         {t("uploadImage").toUpperCase()}
       </span>
     </LiquidGlass>
