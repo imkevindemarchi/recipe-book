@@ -28,12 +28,13 @@ import { Button, Input, LiquidGlass } from "../components";
 // Contexts
 import { PopupContext, TPopupContext } from "../providers/popup.provider";
 import { LoaderContext, TLoaderContext } from "../providers/loader.provider";
+import { AuthContext, TAuthContext } from "../providers/auth.provider";
 
 // Types
 import { THTTPResponse, TLoginPayload } from "../types";
 
 // Utils
-import { setPageTitle, validateEmail } from "../utils";
+import { setPageTitle, setToStorage, validateEmail } from "../utils";
 
 interface IFormData {
   email: string;
@@ -58,6 +59,9 @@ const Login: FC = () => {
     LoaderContext
   ) as TLoaderContext;
   const { t } = useTranslation();
+  const { setIsUserAuthenticated }: TAuthContext = useContext(
+    AuthContext
+  ) as TAuthContext;
 
   setPageTitle("Log In");
 
@@ -92,6 +96,8 @@ const Login: FC = () => {
             AUTH_API.login(payload).then((response: THTTPResponse) => {
               if (response.hasSuccess) {
                 navigate("/admin");
+                setToStorage("token", response.data?.access_token);
+                setIsUserAuthenticated(true);
               }
             })
           );
@@ -164,7 +170,7 @@ const Login: FC = () => {
           autoComplete="current-password"
         />
       </div>
-      <Button type="submit" text={t("logIn")} />
+      <Button variant="primary" type="submit" text={t("logIn")} />
     </form>
   );
 

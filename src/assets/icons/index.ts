@@ -7,4 +7,6 @@ export { Check as CheckIcon } from "./check.icon";
 export { Warning as WarningIcon } from "./warning.icon";
 export { Error as ErrorIcon } from "./error.icon";
 export { Logout as LogoutIcon } from "./logout.icon";
-export { Login as LoginIcon } from ".//login.icon";
+export { Login as LoginIcon } from "./login.icon";
+export { ArrowRight as ArrowRightIcon } from "./arrow-right.icon";
+export { Image as ImageIcon } from "./image.icon";

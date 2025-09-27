@@ -9,3 +9,5 @@ export { default as Navbar } from "./Navbar.component";
 export { default as LanguageSelector } from "./LanguageSelector.component";
 export { default as Sidebar } from "./Sidebar.component";
 export { default as Hamburger } from "./Hamburger.component";
+export { default as Breadcrumb } from "./Breadcrumb.component";
+export { default as ImageSelector } from "./ImageSelector.component";

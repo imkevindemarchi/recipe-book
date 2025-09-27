@@ -15,6 +15,23 @@
     "categories": "Categorie",
     "italian": "Italiano",
     "english": "Inglese",
-    "logoutError": "Impossibile effettuare il log out"
+    "logoutError": "Impossibile effettuare il log out",
+    "newCategory": "Nuova categoria",
+    "editCategory": "Modifica categoria",
+    "new": "Nuovo",
+    "uploadImage": "Carica immagine",
+    "insertName": "Inserisci il nome",
+    "create": "Crea",
+    "requiredField": "Campo obbligatorio*",
+    "invalidData": "Dati non validi",
+    "unableLoadCategory": "Impossibile caricare la categoria",
+    "categorySuccessfullyUpdated": "Categoria aggiornata con successo",
+    "unableUpdateImage": "Impossibile aggiornare l'immagine",
+    "unableRemoveImage": "Impossibile eliminare l'immagine",
+    "unableUpdateCategory": "Impossibile aggiornare la categoria",
+    "categorySuccessfullyCreated": "Categoria creata con successo",
+    "unableLoadImage": "Impossibile caricare l'immagine",
+    "unableCreateCategory": "Impossibile creare la categoria",
+    "edit": "Modifica"
   }
 }

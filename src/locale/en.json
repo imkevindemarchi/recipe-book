@@ -15,6 +15,23 @@
     "categories": "Categories",
     "italian": "Italian",
     "english": "English",
-    "logoutError": "Unable to log out"
+    "logoutError": "Unable to log out",
+    "newCategory": "New category",
+    "editCategory": "Edit category",
+    "new": "New",
+    "uploadImage": "Upload image",
+    "insertName": "Insert the name",
+    "create": "Create",
+    "requiredField": "Required field*",
+    "invalidData": "Invalid data",
+    "unableLoadCategory": "Unable to load the category",
+    "categorySuccessfullyUpdated": "Category successfully updated",
+    "unableUpdateImage": "Unable to update the image",
+    "unableRemoveImage": "Unable to remove the image",
+    "unableUpdateCategory": "Unable to update the category",
+    "categorySuccessfullyCreated": "Category successfully created",
+    "unableLoadImage": "Unable to load the image",
+    "unableCreateCategory": "Unable to create the category",
+    "edit": "Edit"
   }
 }

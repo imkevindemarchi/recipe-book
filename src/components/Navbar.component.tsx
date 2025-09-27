@@ -132,7 +132,10 @@ const Navbar: FC<IProps> = ({ isAdminSection }) => {
   );
 
   return (
-    <div className="w-full h-36 fixed flex items-center px-20 justify-between mobile:hidden">
+    <div
+      style={{ zIndex: 100 }}
+      className="w-full h-36 fixed flex items-center px-20 justify-between mobile:hidden"
+    >
       <div className="flex items-center gap-5">
         {logo}
         {routesComponent}

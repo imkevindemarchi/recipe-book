@@ -8,7 +8,6 @@ import { AUTH_API } from "../api";
 // Assets
 import logoImg from "../assets/images/logo.png";
 import { LoginIcon, LogoutIcon } from "../assets/icons";
-import { Z_INDEX } from "../assets/constants";
 
 // Components
 import LiquidGlass from "./LiquidGlass.component";
@@ -145,13 +144,13 @@ const Sidebar: FC<IProps> = ({ isAdminSection }) => {
 
   return (
     <LiquidGlass
-      className={`fixed z-[${
-        Z_INDEX.SIDEBAR
-      }] left-0 w-full h-full flex justify-center items-center flex-col gap-10 desktop:hidden ${
+      className={`fixed left-0 w-full h-full flex justify-center items-center flex-col gap-10 desktop:hidden ${
         isOpen ? "top-0 opacity-100" : "top-[-100%] opacity-0"
       }`}
       borderRadius={0}
       borderBottomRadius={50}
+      zIndex={150}
+      blur={10}
     >
       {logo}
       {routesComponent}

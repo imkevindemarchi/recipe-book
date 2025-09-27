@@ -21,10 +21,12 @@ const Popup: FC = () => {
 
   return (
     <LiquidGlass
+      zIndex={100}
       className={`fixed top-10 ${
         isOpen ? "right-5 opacity-100" : "-right-96 opacity-0"
-      }  `}
+      }`}
       noBorder
+      blur={2}
     >
       <div
         style={{
