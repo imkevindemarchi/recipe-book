@@ -56,7 +56,7 @@ const Input: FC<IProps> = ({
   }, []);
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 w-full">
       <LiquidGlass
         ref={inputRef}
         className={`flex flex-col gap-2 px-5 py-3 ${className}`}

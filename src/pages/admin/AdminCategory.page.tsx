@@ -244,7 +244,7 @@ const AdminCategory: FC = () => {
       onSubmit={onSubmit}
       className="flex flex-col gap-5 justify-center items-center min-h-[70vh]"
     >
-      <LiquidGlass className="w-fit px-20 py-20 flex flex-col justify-center items-center gap-10">
+      <LiquidGlass className="w-fit px-20 py-20 mobile:px-10 mobile:py-10 mobile:w-full flex flex-col justify-center items-center gap-10">
         {imageSelector}
         {image}
         {label}

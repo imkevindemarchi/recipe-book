@@ -32,7 +32,7 @@ const Breadcrumb = () => {
   }
 
   return splittedPathname.length > 1 ? (
-    <div className="flex items-center w-fit">
+    <div className="flex items-center w-fit gap-3">
       {splittedPathname.map((path: string, index: number) => {
         const isLastElement: boolean = index === splittedPathname.length - 1;
 
@@ -43,7 +43,7 @@ const Breadcrumb = () => {
             </span>
           </LiquidGlass>
         ) : (
-          <div key={index} className="flex flex-row items-center px-5">
+          <div key={index} className="flex flex-row items-center gap-3">
             <span
               onClick={onGoToPreviousPage}
               className="transition-all duration-300 hover:underline cursor-pointer text-white opacity-80"
