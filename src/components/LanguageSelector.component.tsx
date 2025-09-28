@@ -84,7 +84,7 @@ const LanguageSelector: FC<IProps> = ({ value, onChange }) => {
               <div
                 key={index}
                 onClick={() => onChange(language.id)}
-                className="flex items-center gap-2 cursor-pointer"
+                className="flex items-center gap-2 cursor-pointer hover:opacity-50 transition-all duration-300"
               >
                 <ReactCountryFlag
                   countryCode={countryCode}
