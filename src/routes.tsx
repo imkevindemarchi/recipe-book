@@ -75,7 +75,7 @@ export const ADMIN_ROUTES: TRoute[] = [
   {
     path: "/admin/categories/edit/:categoryId",
     name: "category",
-    element: <></>,
+    element: <AdminCategory />,
     isHidden: true,
   },
 ];
