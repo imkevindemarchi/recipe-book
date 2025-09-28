@@ -32,6 +32,19 @@
     "categorySuccessfullyCreated": "Category successfully created",
     "unableLoadImage": "Unable to load the image",
     "unableCreateCategory": "Unable to create the category",
-    "edit": "Edit"
+    "edit": "Edit",
+    "name": "Name",
+    "image": "Image",
+    "unableLoadCategories": "Unable to load categories",
+    "total": "Total",
+    "noData": "No data available...",
+    "deleteCategory": "Delete category",
+    "confirmToDelete": "Confirm you want to delete ''{{name}}''?",
+    "cancel": "Cancel",
+    "save": "Save",
+    "no": "No",
+    "yes": "Yes",
+    "categoryDeleted": "Category successfully deleted",
+    "unableDeleteCategory": "Unable to delete the category"
   }
 }

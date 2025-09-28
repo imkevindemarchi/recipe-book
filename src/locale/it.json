@@ -32,6 +32,19 @@
     "categorySuccessfullyCreated": "Categoria creata con successo",
     "unableLoadImage": "Impossibile caricare l'immagine",
     "unableCreateCategory": "Impossibile creare la categoria",
-    "edit": "Modifica"
+    "edit": "Modifica",
+    "name": "Nome",
+    "image": "Immagine",
+    "unableLoadCategories": "Impossibile caricare le categorie",
+    "total": "Totale",
+    "noData": "Nessun dato disponibile...",
+    "deleteCategory": "Elimina categoria",
+    "confirmToDelete": "Confermi di voler eliminare ''{{name}}''?",
+    "cancel": "Annulla",
+    "save": "Salva",
+    "no": "No",
+    "yes": "Sì",
+    "categoryDeleted": "Categoria eliminata con successo",
+    "unableDeleteCategory": "Impossibile eliminare la categoria"
   }
 }

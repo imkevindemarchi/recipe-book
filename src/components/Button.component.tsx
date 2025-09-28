@@ -25,6 +25,7 @@ const Button: FC<IProps> = ({
       return (
         <LiquidGlass>
           <button
+            onClick={onClick}
             type={type}
             className="px-10 py-3 w-full flex justify-center items-center hover:opacity-50 transition-all duration-300"
           >
