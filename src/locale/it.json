@@ -45,6 +45,7 @@
     "no": "No",
     "yes": "Sì",
     "categoryDeleted": "Categoria eliminata con successo",
-    "unableDeleteCategory": "Impossibile eliminare la categoria"
+    "unableDeleteCategory": "Impossibile eliminare la categoria",
+    "searchForName": "Cerca per nome..."
   }
 }

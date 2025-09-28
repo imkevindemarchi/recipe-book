@@ -45,6 +45,7 @@
     "no": "No",
     "yes": "Yes",
     "categoryDeleted": "Category successfully deleted",
-    "unableDeleteCategory": "Unable to delete the category"
+    "unableDeleteCategory": "Unable to delete the category",
+    "searchForName": "Search for name..."
   }
 }

@@ -1,4 +1,11 @@
-import React, { FC, ReactNode, useContext, useEffect, useState } from "react";
+import React, {
+  ChangeEvent,
+  FC,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { useTranslation } from "react-i18next";
 import {
   NavigateFunction,
@@ -10,8 +17,11 @@ import {
 // Api
 import { CATEGORY_API, IMAGE_API } from "../../api";
 
+// Assets
+import { AddIcon, SearchIcon } from "../../assets/icons";
+
 // Components
-import { LiquidGlass, Modal, Table } from "../../components";
+import { Input, LiquidGlass, Modal, Table } from "../../components";
 
 // Contexts
 import { LoaderContext, TLoaderContext } from "../../providers/loader.provider";
@@ -147,6 +157,43 @@ const AdminCategories: FC = () => {
     setIsLoading(false);
   }
 
+  function onGoToNewPage(): void {
+    navigate(`${pathname}/new`);
+  }
+
+  const header: ReactNode = (
+    <div className="w-full flex justify-between items-center gap-5">
+      <Input
+        autoFocus
+        placeholder={t("searchForName")}
+        value={table.label}
+        onChange={(event: ChangeEvent<HTMLInputElement>) => {
+          let text: string = event.target.value;
+          if (text.length > 0)
+            text = text.charAt(0).toUpperCase() + text.slice(1);
+
+          setTable((prevState) => {
+            return {
+              ...prevState,
+              label: text,
+              from: 0,
+              to: 4,
+              page: 1,
+            };
+          });
+        }}
+        onSearch={getData}
+        startIcon={<SearchIcon className="text-white text-2xl" />}
+      />
+      <LiquidGlass
+        onClick={onGoToNewPage}
+        className="p-3 cursor-pointer hover:opacity-50"
+      >
+        <AddIcon className="text-white text-2xl" />
+      </LiquidGlass>
+    </div>
+  );
+
   const tableComponent: ReactNode = (
     <Table
       data={tableData}
@@ -196,7 +243,10 @@ const AdminCategories: FC = () => {
   return (
     <div className="flex flex-col gap-5">
       {title}
-      <LiquidGlass>{tableComponent}</LiquidGlass>
+      {header}
+      <LiquidGlass className="flex flex-col gap-10">
+        {tableComponent}
+      </LiquidGlass>
       {modalComponent}
     </div>
   );

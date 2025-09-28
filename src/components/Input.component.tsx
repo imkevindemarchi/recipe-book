@@ -1,7 +1,17 @@
-import React, { ChangeEvent, FC, ReactElement, useEffect, useRef } from "react";
+import React, {
+  ChangeEvent,
+  FC,
+  ReactElement,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 // Components
 import LiquidGlass from "./LiquidGlass.component";
+
+// Spinner
+import { ClipLoader as Spinner } from "react-spinners";
 
 // Types
 import { TValidation } from "../utils/validation.util";
@@ -22,6 +32,7 @@ interface IProps {
   className?: string;
   autoComplete?: TInputAutoComplete;
   error?: TValidation;
+  onSearch?: () => Promise<void>;
 }
 
 const Input: FC<IProps> = ({
@@ -36,8 +47,11 @@ const Input: FC<IProps> = ({
   endIcon,
   autoComplete,
   error = { isValid: true },
+  onSearch,
 }) => {
   const inputRef = useRef<HTMLDivElement>(null);
+  const [isValueChanged, setIsValueChanged] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   function onFocus() {
     if (inputRef.current)
@@ -48,6 +62,19 @@ const Input: FC<IProps> = ({
     if (inputRef.current)
       inputRef.current.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
   }
+
+  useEffect(() => {
+    const timeOut: NodeJS.Timeout = setTimeout(async () => {
+      if (isValueChanged && onSearch) {
+        await onSearch();
+        setIsLoading(false);
+      }
+    }, 1000);
+
+    return () => clearTimeout(timeOut);
+
+    // eslint-disable-next-line
+  }, [value]);
 
   useEffect(() => {
     autoFocus && onFocus();
@@ -73,10 +100,17 @@ const Input: FC<IProps> = ({
             placeholder={placeholder}
             onFocus={onFocus}
             onBlur={onBlur}
-            onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(event)}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => {
+              onChange(event);
+              if (onSearch) {
+                setIsValueChanged(true);
+                setIsLoading(true);
+              }
+            }}
             autoComplete={autoComplete}
           />
           {endIcon}
+          {isLoading && <Spinner size={20} color="#ffffff" className="ml-2" />}
         </div>
       </LiquidGlass>
       {!error?.isValid && (
