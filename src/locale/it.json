@@ -32,6 +32,7 @@
     "categorySuccessfullyCreated": "Categoria creata con successo",
     "unableLoadImage": "Impossibile caricare l'immagine",
     "unableCreateCategory": "Impossibile creare la categoria",
-    "edit": "Modifica"
+    "edit": "Modifica",
+    "save": "Salva"
   }
 }

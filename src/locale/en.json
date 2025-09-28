@@ -32,6 +32,7 @@
     "categorySuccessfullyCreated": "Category successfully created",
     "unableLoadImage": "Unable to load the image",
     "unableCreateCategory": "Unable to create the category",
-    "edit": "Edit"
+    "edit": "Edit",
+    "save": "Save"
   }
 }

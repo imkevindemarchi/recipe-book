@@ -222,7 +222,11 @@ const AdminCategory: FC = () => {
   );
 
   const button: ReactNode = (
-    <Button type="submit" variant="liquid-glass" text={t("create")} />
+    <Button
+      type="submit"
+      variant="liquid-glass"
+      text={t(isEditMode ? "save" : "create")}
+    />
   );
 
   useEffect(() => {
