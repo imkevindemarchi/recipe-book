@@ -65,7 +65,7 @@ const Modal: FC<IProps> = ({
     <Backdrop>
       <LiquidGlass
         blur={10}
-        className="absolute p-10 flex flex-col gap-5 min-w-[35%]"
+        className="absolute p-10 flex flex-col gap-5 min-w-[35%] mobile:max-w-[90%] mobile:p-5"
       >
         {header}
         {children}
