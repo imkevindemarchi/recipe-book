@@ -129,19 +129,17 @@ const Table: FC<IProps> = ({
           <span className="text-white opacity-80">{t("total")}:</span>
           <span className="text-white font-bold">{total}</span>
         </div>
-        <div className="flex flex-row w-[7%] justify-between mobile:w-[30%]">
+        <div className="flex flex-row w-[7%] justify-between mobile:w-[35%]">
           <LiquidGlass
             className={`transition-all duration-300 ${
-              !canGoPrevious ? "opacity-60" : ""
+              !canGoPrevious ? "opacity-60 cursor-not-allowed" : ""
             }`}
           >
             <button
               disabled={!canGoPrevious}
               onClick={async () => await onGoPreviousPage()}
-              className={`flex justify-center items-center w-10 h-10 p-2 rounded-lg transition-all duration-300 ${
-                !canGoPrevious
-                  ? "bg-lightgray"
-                  : "bg-primary-transparent hover:opacity-50 mobile:hover:opacity-100"
+              className={`flex justify-center items-center w-10 h-10 p-2 rounded-lg ${
+                !canGoPrevious ? "cursor-not-allowed" : ""
               }`}
             >
               <ArrowLeftIcon className="text-3xl text-white" />
@@ -149,13 +147,15 @@ const Table: FC<IProps> = ({
           </LiquidGlass>
           <LiquidGlass
             className={`transition-all duration-300 ${
-              !canGoNext ? "opacity-60" : ""
+              !canGoNext ? "opacity-60 cursor-not-allowed" : ""
             }`}
           >
             <button
               disabled={!canGoNext}
               onClick={async () => await onGoNextPage()}
-              className="flex justify-center items-center w-10 h-10 p-2 rounded-lg"
+              className={`flex justify-center items-center w-10 h-10 p-2 rounded-lg ${
+                !canGoNext ? "cursor-not-allowed" : ""
+              }`}
             >
               <ArrowRightIcon className="text-3xl text-white" />
             </button>
