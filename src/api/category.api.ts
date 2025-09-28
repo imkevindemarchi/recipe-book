@@ -8,6 +8,40 @@ import { TCategory } from "../types/category.type";
 const TABLE = "categories";
 
 export const CATEGORY_API = {
+  getAllWithFilters: async (
+    from: number,
+    to: number,
+    label: string
+  ): Promise<THTTPResponse> => {
+    try {
+      const {
+        data,
+        count: totalRecords,
+        error,
+      } = await supabase
+        .from(TABLE)
+        .select("*", { count: "exact" })
+        .range(from, to)
+        .ilike("label", `%${label}%`);
+
+      if (!data || error)
+        return {
+          hasSuccess: false,
+        };
+
+      return {
+        data,
+        hasSuccess: true,
+        totalRecords: totalRecords && totalRecords,
+      };
+    } catch (error) {
+      console.error("🚀 ~ getAllWithFilters - error:", error);
+      return {
+        hasSuccess: false,
+      };
+    }
+  },
+
   get: async (id: string): Promise<any> => {
     try {
       const { data, error } = await supabase.from(TABLE).select().eq("id", id);
@@ -72,6 +106,26 @@ export const CATEGORY_API = {
       };
     } catch (error) {
       console.error("🚀 ~ update - error:", error);
+      return {
+        hasSuccess: false,
+      };
+    }
+  },
+
+  delete: async (id: string): Promise<THTTPResponse> => {
+    try {
+      const { error } = await supabase.from(TABLE).delete().eq("id", id);
+
+      if (error)
+        return {
+          hasSuccess: false,
+        };
+
+      return {
+        hasSuccess: true,
+      };
+    } catch (error) {
+      console.error("🚀 ~ delete - error:", error);
       return {
         hasSuccess: false,
       };

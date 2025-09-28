@@ -10,3 +10,5 @@ export { Logout as LogoutIcon } from "./logout.icon";
 export { Login as LoginIcon } from "./login.icon";
 export { ArrowRight as ArrowRightIcon } from "./arrow-right.icon";
 export { Image as ImageIcon } from "./image.icon";
+export { Delete as DeleteIcon } from "./delete.icon";
+export { ArrowLeft as ArrowLeftIcon } from "./arrow-left.icon";

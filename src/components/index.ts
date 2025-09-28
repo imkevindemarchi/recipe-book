@@ -11,3 +11,5 @@ export { default as Sidebar } from "./Sidebar.component";
 export { default as Hamburger } from "./Hamburger.component";
 export { default as Breadcrumb } from "./Breadcrumb.component";
 export { default as ImageSelector } from "./ImageSelector.component";
+export { default as Table } from "./Table.component";
+export { default as Modal } from "./Modal.component";
