@@ -87,7 +87,7 @@ const Textarea: FC<IProps> = ({
         <div className="flex flex-row gap-2 items-center">
           {startIcon}
           <textarea
-            value={value}
+            value={value || ""}
             name={name}
             autoFocus={autoFocus}
             style={{ background: "transparent", minHeight: 150 }}

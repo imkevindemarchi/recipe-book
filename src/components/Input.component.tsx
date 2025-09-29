@@ -91,7 +91,7 @@ const Input: FC<IProps> = ({
         <div className="flex flex-row gap-2 items-center">
           {startIcon}
           <input
-            value={value}
+            value={value || ""}
             name={name}
             type={type}
             autoFocus={autoFocus}
