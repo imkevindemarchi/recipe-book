@@ -59,6 +59,10 @@
     "unableUpdateIngredient": "Unable to update the ingredient",
     "ingredientSuccessfullyCreated": "Ingredient successfully created",
     "unableCreateIngredient": "Unable to create the ingredient",
-    "insertIcon": "Insert the icon"
+    "insertIcon": "Insert the icon",
+    "category": "Category",
+    "deleteRecipe": "Delete recipe",
+    "recipeSuccessfullyDeleted": "Recipe successfully deleted",
+    "unableDeleteRecipe": "Unable to delete the recipe"
   }
 }
