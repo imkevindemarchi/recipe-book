@@ -44,8 +44,12 @@
     "save": "Save",
     "no": "No",
     "yes": "Yes",
-    "categoryDeleted": "Category successfully deleted",
+    "categorySuccessfullyDeleted": "Category successfully deleted",
     "unableDeleteCategory": "Unable to delete the category",
-    "searchForName": "Search for name..."
+    "searchForName": "Search for name...",
+    "deleteIngredient": "Delete ingredient",
+    "unableLoadIngredients": "Unable to load ingredients",
+    "ingredientSuccessfullyDeleted": "Ingredient successfully deleted",
+    "unableDeleteIngredient": "Unable to delete the ingredient"
   }
 }

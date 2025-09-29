@@ -5,3 +5,7 @@ export type THTTPResponse = {
 };
 
 export type TLoginPayload = { email: string; password: string };
+
+export type { TCategory } from "./category.type";
+
+export type { TIngredient } from "./ingredient.type";

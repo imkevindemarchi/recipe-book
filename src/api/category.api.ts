@@ -2,8 +2,7 @@
 import { supabase } from "../supabase";
 
 // Types
-import { THTTPResponse } from "../types";
-import { TCategory } from "../types/category.type";
+import { TCategory, THTTPResponse } from "../types";
 
 const TABLE = "categories";
 

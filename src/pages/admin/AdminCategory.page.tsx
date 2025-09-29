@@ -21,8 +21,7 @@ import { PopupContext, TPopupContext } from "../../providers/popup.provider";
 import { LoaderContext, TLoaderContext } from "../../providers/loader.provider";
 
 // Types
-import { TCategory } from "../../types/category.type";
-import { THTTPResponse } from "../../types";
+import { TCategory, THTTPResponse } from "../../types";
 
 // Utils
 import { setPageTitle } from "../../utils";
