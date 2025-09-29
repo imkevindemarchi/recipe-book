@@ -5,6 +5,7 @@ import { Login } from "./pages";
 import {
   AdminCategories,
   AdminCategory,
+  AdminIngredient,
   AdminIngredients,
 } from "./pages/admin";
 
@@ -56,13 +57,13 @@ export const ADMIN_ROUTES: TRoute[] = [
   {
     path: "/admin/ingredients/new",
     name: "ingredient",
-    element: <></>,
+    element: <AdminIngredient />,
     isHidden: true,
   },
   {
     path: "/admin/ingredients/edit/:ingredientId",
     name: "ingredient",
-    element: <></>,
+    element: <AdminIngredient />,
     isHidden: true,
   },
   {

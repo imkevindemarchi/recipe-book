@@ -50,6 +50,15 @@
     "deleteIngredient": "Delete ingredient",
     "unableLoadIngredients": "Unable to load ingredients",
     "ingredientSuccessfullyDeleted": "Ingredient successfully deleted",
-    "unableDeleteIngredient": "Unable to delete the ingredient"
+    "unableDeleteIngredient": "Unable to delete the ingredient",
+    "editIngredient": "Edit ingredient",
+    "newIngredient": "New ingredient",
+    "unableLoadIngredient": "Unable to load the ingredient",
+    "ingredientAlreadyExists": "The ingredient already exists",
+    "ingredientSuccessfullyUpdated": "Ingredient successfully updated",
+    "unableUpdateIngredient": "Unable to update the ingredient",
+    "ingredientSuccessfullyCreated": "Ingredient successfully created",
+    "unableCreateIngredient": "Unable to create the ingredient",
+    "insertIcon": "Insert the icon"
   }
 }
