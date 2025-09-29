@@ -98,17 +98,17 @@ const Table: FC<IProps> = ({
                   const isImageColumn: boolean = column.key === "image";
 
                   return isImageColumn ? (
-                    <td key={index2} className="p-2">
-                      <div className="w-40 flex justify-center items-center p-5">
+                    <td key={index2} className="p-5">
+                      <LiquidGlass className="w-40 flex justify-center items-center p-5">
                         <img
                           src={`${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/images/${item?.id}`}
                           alt={t("imgNotFound")}
                           className="w-full h-full rounded-xl"
                         />
-                      </div>
+                      </LiquidGlass>
                     </td>
                   ) : (
-                    <td key={index2} className="p-2 whitespace-nowrap">
+                    <td key={index2} className="p-5 whitespace-nowrap">
                       <span
                         className={`transition-all duration-300 ${
                           isEmail ? "text-primary" : "text-white"
