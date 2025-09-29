@@ -522,10 +522,10 @@ const AdminRecipe: FC = () => {
         {imageSelector}
         {image}
         <Grid container columnSpacing={5} rowSpacing={2}>
-          <Grid size={6}>{name}</Grid>
-          <Grid size={6}>{category}</Grid>
-          <Grid size={6}>{time}</Grid>
-          <Grid size={6}>{people}</Grid>
+          <Grid size={{ xs: 12, md: 6 }}>{name}</Grid>
+          <Grid size={{ xs: 12, md: 6 }}>{category}</Grid>
+          <Grid size={{ xs: 12, md: 6 }}>{time}</Grid>
+          <Grid size={{ xs: 12, md: 6 }}>{people}</Grid>
         </Grid>
         {!isEditMode && (
           <CustomButton
@@ -548,7 +548,7 @@ const AdminRecipe: FC = () => {
     >
       <LiquidGlass className="w-full px-20 py-20 mobile:px-10 mobile:py-10 mobile:w-full flex flex-col justify-center items-center gap-10">
         <Grid container columnSpacing={5} rowSpacing={2}>
-          <Grid size={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Autocomplete
               value={{
                 id: ingredientsFormData.id,
@@ -572,7 +572,7 @@ const AdminRecipe: FC = () => {
               data={ingredients}
             />
           </Grid>
-          <Grid size={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Input
               type="number"
               value={ingredientsFormData.quantity}
@@ -637,9 +637,7 @@ const AdminRecipe: FC = () => {
       <LiquidGlass className="w-full px-20 py-20 mobile:px-10 mobile:py-10 mobile:w-full flex flex-col justify-center items-center gap-10">
         <Textarea
           value={step as string}
-          onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
-            setStep(event.target.value)
-          }
+          onChange={(value: string) => setStep(value)}
           placeholder={t("insertStep")}
           error={stepErrors.step}
         />
@@ -664,7 +662,7 @@ const AdminRecipe: FC = () => {
             className="p-5 flex items-center justify-between gap-5 flex-wrap overflow-hidden w-full"
           >
             <DragIcon className="text-white text-xl mobile:hidden" />
-            <div className="w-[90%] text-center">
+            <div className="max-w-[75%] flex flex-wrap">
               <span className="text-white">{step}</span>
             </div>
             <LiquidGlass
@@ -711,9 +709,9 @@ const AdminRecipe: FC = () => {
       {isEditMode && (
         <div className="flex flex-col justify-center items-center gap-5">
           {sectionTitle("ingredients")}
-          <Grid container columnSpacing={5} className="w-full">
-            <Grid size={6}>{ingredientsForm}</Grid>
-            <Grid size={6}>{ingredientsComponent}</Grid>
+          <Grid container columnSpacing={5} rowSpacing={5} className="w-full">
+            <Grid size={{ xs: 12, md: 6 }}>{ingredientsForm}</Grid>
+            <Grid size={{ xs: 12, md: 6 }}>{ingredientsComponent}</Grid>
           </Grid>
           {sectionTitle("procedure")}
           {procedureForm}

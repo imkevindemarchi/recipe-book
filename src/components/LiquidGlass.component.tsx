@@ -4,7 +4,7 @@ interface IProps {
   children: ReactNode;
   className?: string;
   ref?: RefObject<HTMLDivElement | null>;
-  onClick?: () => void;
+  onClick?: (event: any) => void;
   noBorder?: boolean;
   borderRadius?: number;
   borderBottomRadius?: number;
@@ -38,7 +38,7 @@ const LiquidGlass: FC<IProps> = ({
   return (
     <div
       ref={ref}
-      onClick={onClick}
+      onClick={onClick && onClick}
       draggable={draggable}
       onDragStart={onDragStart}
       onDragOver={onDragOver}

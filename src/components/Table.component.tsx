@@ -82,14 +82,14 @@ const Table: FC<IProps> = ({
               >
                 {onDelete && (
                   <td className="mobile:p-2">
-                    <LiquidGlass className="w-10 h-10 flex justify-center items-center">
-                      <DeleteIcon
-                        onClick={(event: any) => {
-                          event.stopPropagation();
-                          onDelete(item);
-                        }}
-                        className="text-white text-2xl"
-                      />
+                    <LiquidGlass
+                      onClick={(event: any) => {
+                        event.stopPropagation();
+                        onDelete(item);
+                      }}
+                      className="w-10 h-10 flex justify-center items-center"
+                    >
+                      <DeleteIcon className="text-white text-2xl" />
                     </LiquidGlass>
                   </td>
                 )}

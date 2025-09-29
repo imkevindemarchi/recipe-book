@@ -25,7 +25,7 @@ interface IProps {
   endIcon?: ReactElement;
   name?: string;
   value: any;
-  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (value: string) => void;
   className?: string;
   autoComplete?: TInputAutoComplete;
   error?: TValidation;
@@ -96,7 +96,11 @@ const Textarea: FC<IProps> = ({
             onFocus={onFocus}
             onBlur={onBlur}
             onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
-              onChange(event);
+              let text: string = event.target.value;
+              if (text.length > 0)
+                text = text.charAt(0).toUpperCase() + text.slice(1);
+
+              onChange(text);
               if (onSearch) {
                 setIsValueChanged(true);
                 setIsLoading(true);
