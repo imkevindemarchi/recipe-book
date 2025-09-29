@@ -13,6 +13,9 @@ import { NavigateFunction, useNavigate, useParams } from "react-router";
 // Api
 import { CATEGORY_API, IMAGE_API } from "../../api";
 
+// Assets
+import { AddIcon, CreateIcon, SaveIcon } from "../../assets/icons";
+
 // Components
 import { Button, Input, LiquidGlass, ImageSelector } from "../../components";
 
@@ -225,6 +228,13 @@ const AdminCategory: FC = () => {
       type="submit"
       variant="liquid-glass"
       text={t(isEditMode ? "save" : "create")}
+      icon={
+        isEditMode ? (
+          <SaveIcon className="text-xl text-white" />
+        ) : (
+          <CreateIcon className="text-xl text-white" />
+        )
+      }
     />
   );
 

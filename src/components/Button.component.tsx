@@ -12,6 +12,7 @@ interface IProps {
   text: string;
   type?: TButtonType;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  icon?: any;
 }
 
 const Button: FC<IProps> = ({
@@ -19,6 +20,7 @@ const Button: FC<IProps> = ({
   type = "button",
   text,
   onClick,
+  icon,
 }) => {
   switch (variant) {
     case "liquid-glass": {
@@ -27,8 +29,9 @@ const Button: FC<IProps> = ({
           <button
             onClick={onClick}
             type={type}
-            className="px-10 py-3 w-full flex justify-center items-center hover:opacity-50 transition-all duration-300"
+            className="px-10 py-3 w-full flex justify-center items-center gap-1 hover:opacity-50 transition-all duration-300"
           >
+            {icon && icon}
             <span className="text-base text-white">{text}</span>
           </button>
         </LiquidGlass>

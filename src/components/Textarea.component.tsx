@@ -16,8 +16,6 @@ import { ClipLoader as Spinner } from "react-spinners";
 // Types
 import { TValidation } from "../utils/validation.util";
 
-type TInputType = "text" | "password" | "number";
-
 type TInputAutoComplete = "email" | "current-password";
 
 interface IProps {
@@ -25,18 +23,16 @@ interface IProps {
   placeholder: string;
   startIcon?: ReactElement;
   endIcon?: ReactElement;
-  type?: TInputType;
   name?: string;
   value: any;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   className?: string;
   autoComplete?: TInputAutoComplete;
   error?: TValidation;
   onSearch?: () => Promise<void>;
 }
 
-const Input: FC<IProps> = ({
-  type = "text",
+const Textarea: FC<IProps> = ({
   autoFocus = false,
   placeholder,
   startIcon,
@@ -86,21 +82,20 @@ const Input: FC<IProps> = ({
     <div className="flex flex-col gap-2 w-full">
       <LiquidGlass
         ref={inputRef}
-        className={`flex flex-col gap-2 px-5 py-3 ${className}`}
+        className={`flex flex-col gap-2 p-10 ${className}`}
       >
         <div className="flex flex-row gap-2 items-center">
           {startIcon}
-          <input
+          <textarea
             value={value}
             name={name}
-            type={type}
             autoFocus={autoFocus}
-            style={{ background: "transparent" }}
+            style={{ background: "transparent", minHeight: 150 }}
             className="border-none outline-none text-base text-white w-full"
             placeholder={placeholder}
             onFocus={onFocus}
             onBlur={onBlur}
-            onChange={(event: ChangeEvent<HTMLInputElement>) => {
+            onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
               onChange(event);
               if (onSearch) {
                 setIsValueChanged(true);
@@ -126,4 +121,4 @@ const Input: FC<IProps> = ({
   );
 };
 
-export default Input;
+export default Textarea;

@@ -63,6 +63,22 @@
     "category": "Category",
     "deleteRecipe": "Delete recipe",
     "recipeSuccessfullyDeleted": "Recipe successfully deleted",
-    "unableDeleteRecipe": "Unable to delete the recipe"
+    "unableDeleteRecipe": "Unable to delete the recipe",
+    "insertCategory": "Insert the category",
+    "insertTime": "Insert the time",
+    "insertPeople": "Insert the people",
+    "recipe": "Recipe",
+    "insertIngredient": "Insert the ingredient",
+    "insertQuantity": "Insert the quantity",
+    "add": "Add",
+    "noIngredients": "No ingredient",
+    "procedure": "Procedure",
+    "noProcedure": "No step",
+    "insertStep": "Insert the step",
+    "unableLoadRecipe": "Unable to load the recipe",
+    "recipeSuccessfullyUpdated": "Recipe successfully updated",
+    "unableUpdateRecipe": "Unable to update the recipe",
+    "recipeSuccessfullyCreated": "Recipe successfully created",
+    "unableCreateRecipe": "Unable to create the recipe"
   }
 }
