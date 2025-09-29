@@ -50,6 +50,15 @@
     "deleteIngredient": "Elimina ingrediente",
     "unableLoadIngredients": "Impossibile caricare gli ingredienti",
     "ingredientSuccessfullyDeleted": "Ingrediente eliminato con successo",
-    "unableDeleteIngredient": "Impossibile eliminare l'ingrediente"
+    "unableDeleteIngredient": "Impossibile eliminare l'ingrediente",
+    "editIngredient": "Modifica ingrediente",
+    "newIngredient": "Nuovo ingrediente",
+    "unableLoadIngredient": "Impossibile caricare l'ingrediente",
+    "ingredientAlreadyExists": "L'ingrediente esiste già",
+    "ingredientSuccessfullyUpdated": "Ingrediente aggiornato con successo",
+    "unableUpdateIngredient": "Impossibile aggiornare l'ingrediente",
+    "ingredientSuccessfullyCreated": "Ingrediente creato con successo",
+    "unableCreateIngredient": "Impossibile creare l'ingrediente",
+    "insertIcon": "Inserisci l'icona"
   }
 }
