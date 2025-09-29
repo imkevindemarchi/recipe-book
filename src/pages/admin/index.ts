@@ -1,2 +1,3 @@
 export { default as AdminCategory } from "./AdminCategory.page";
 export { default as AdminCategories } from "./AdminCategories.page";
+export { default as AdminIngredients } from "./AdminIngredients.page";

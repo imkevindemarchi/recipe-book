@@ -15,7 +15,7 @@ import {
 } from "react-router";
 
 // Api
-import { CATEGORY_API, IMAGE_API } from "../../api";
+import { INGREDIENT_API, IMAGE_API } from "../../api";
 
 // Assets
 import { AddIcon, SearchIcon } from "../../assets/icons";
@@ -28,7 +28,7 @@ import { LoaderContext, TLoaderContext } from "../../providers/loader.provider";
 import { PopupContext, TPopupContext } from "../../providers/popup.provider";
 
 // Types
-import { TCategory, THTTPResponse } from "../../types";
+import { THTTPResponse, TIngredient } from "../../types";
 import { IColumn } from "../../components/Table.component";
 
 // Utils
@@ -44,7 +44,7 @@ interface ITableData {
 
 interface IModal {
   show: boolean;
-  item: TCategory | null;
+  item: TIngredient | null;
 }
 
 const DEFAULT_DELETE_MODAL: IModal = {
@@ -52,7 +52,7 @@ const DEFAULT_DELETE_MODAL: IModal = {
   item: null,
 };
 
-const AdminCategories: FC = () => {
+const AdminIngredients: FC = () => {
   const { t } = useTranslation();
   const { state: isLoading, setState: setIsLoading }: TLoaderContext =
     useContext(LoaderContext) as TLoaderContext;
@@ -65,7 +65,7 @@ const AdminCategories: FC = () => {
     label: searchParams.get("label") || "",
   };
   const [table, setTable] = useState<ITableData>(TABLE_DEFAULT_STATE);
-  const [tableData, setTableData] = useState<TCategory[] | null>(null);
+  const [tableData, setTableData] = useState<TIngredient[] | null>(null);
   const { onOpen: openPopup }: TPopupContext = useContext(
     PopupContext
   ) as TPopupContext;
@@ -75,23 +75,23 @@ const AdminCategories: FC = () => {
 
   const talbeColumns: IColumn[] = [
     { key: "label", value: t("name") },
-    { key: "image", value: t("image") },
+    { key: "icon", value: t("icon") },
   ];
 
-  setPageTitle(t("categories"));
+  setPageTitle(t("ingredients"));
 
   async function getData(): Promise<void> {
     setIsLoading(true);
 
     await Promise.resolve(
-      CATEGORY_API.getAllWithFilters(table.from, table.to, table.label)
+      INGREDIENT_API.getAllWithFilters(table.from, table.to, table.label)
     ).then((response: THTTPResponse) => {
       if (response && response.hasSuccess) {
         setTableData(response.data);
         setTable((prevState) => {
           return { ...prevState, total: response?.totalRecords as number };
         });
-      } else openPopup(t("unableLoadCategories"), "error");
+      } else openPopup(t("unableLoadIngredients"), "error");
     });
 
     setIsLoading(false);
@@ -119,7 +119,7 @@ const AdminCategories: FC = () => {
     });
   }
 
-  async function onTableDelete(rowData: TCategory): Promise<void> {
+  async function onTableDelete(rowData: TIngredient): Promise<void> {
     setDeleteModal({
       show: true,
       item: rowData,
@@ -131,7 +131,7 @@ const AdminCategories: FC = () => {
   }
 
   const title: ReactNode = (
-    <span className="text-white text-2xl">{t("categories")}</span>
+    <span className="text-white text-2xl">{t("ingredients")}</span>
   );
 
   async function onDelete(): Promise<void> {
@@ -139,18 +139,18 @@ const AdminCategories: FC = () => {
     setIsLoading(true);
 
     await Promise.resolve(
-      CATEGORY_API.delete(deleteModal.item?.id as string)
-    ).then(async (categoryRes: THTTPResponse) => {
-      if (categoryRes && categoryRes.hasSuccess) {
+      INGREDIENT_API.delete(deleteModal.item?.id as string)
+    ).then(async (ingredientRes: THTTPResponse) => {
+      if (ingredientRes && ingredientRes.hasSuccess) {
         await Promise.resolve(
           IMAGE_API.delete(deleteModal.item?.id as string)
         ).then((imageRes: THTTPResponse) => {
           if (imageRes && imageRes.hasSuccess) {
-            openPopup(t("categorySuccessfullyDeleted"), "success");
+            openPopup(t("ingredientSuccessfullyDeleted"), "success");
             getData();
           }
         });
-      } else openPopup(t("unableDeleteCategory"), "error");
+      } else openPopup(t("unableDeleteIngredient"), "error");
     });
 
     setIsLoading(false);
@@ -210,7 +210,7 @@ const AdminCategories: FC = () => {
   const modalComponent: ReactNode = (
     <Modal
       isOpen={deleteModal.show}
-      title={t("deleteCategory", { name: deleteModal.item?.label })}
+      title={t("deleteIngredient", { name: deleteModal.item?.label })}
       onCancel={() => setDeleteModal(DEFAULT_DELETE_MODAL)}
       onSubmit={onDelete}
       cancelButtonText="no"
@@ -251,4 +251,4 @@ const AdminCategories: FC = () => {
   );
 };
 
-export default AdminCategories;
+export default AdminIngredients;
