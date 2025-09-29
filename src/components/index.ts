@@ -13,3 +13,5 @@ export { default as Breadcrumb } from "./Breadcrumb.component";
 export { default as ImageSelector } from "./ImageSelector.component";
 export { default as Table } from "./Table.component";
 export { default as Modal } from "./Modal.component";
+export { default as Autocomplete } from "./Autocomplete.component";
+export { default as Textarea } from "./Textarea.component";

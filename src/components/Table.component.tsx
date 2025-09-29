@@ -103,7 +103,8 @@ const Table: FC<IProps> = ({
                         <img
                           src={`${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/images/${item?.id}`}
                           alt={t("imgNotFound")}
-                          className="w-full h-full rounded-xl"
+                          style={{ borderRadius: 30 }}
+                          className="w-full h-full"
                         />
                       </LiquidGlass>
                     </td>

@@ -1,15 +1,15 @@
 // Types
 import { TCategory } from "./category.type";
-import { TIngredient } from "./ingredient.type";
+import { TRecipeIngredient } from "./ingredient.type";
 
 export type TRecipe = {
   id: string | null;
   name: string;
   time: string;
   isFavourite: boolean;
-  people: number;
+  people: number | null;
   createdDate: Date;
-  category: TCategory;
+  category: TCategory | null;
   procedure: string[] | null;
-  ingredients: TIngredient[] | null;
+  ingredients: TRecipeIngredient[] | null;
 };

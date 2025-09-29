@@ -7,6 +7,27 @@ import { TCategory, THTTPResponse } from "../types";
 const TABLE = "categories";
 
 export const CATEGORY_API = {
+  getAll: async (): Promise<THTTPResponse> => {
+    try {
+      const { data, error } = await supabase.from(TABLE).select("*");
+
+      if (!data || error)
+        return {
+          hasSuccess: false,
+        };
+
+      return {
+        data,
+        hasSuccess: true,
+      };
+    } catch (error) {
+      console.error("🚀 ~ getAll - error:", error);
+      return {
+        hasSuccess: false,
+      };
+    }
+  },
+
   getAllWithFilters: async (
     from: number,
     to: number,

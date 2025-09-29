@@ -7,6 +7,7 @@ import {
   AdminCategory,
   AdminIngredient,
   AdminIngredients,
+  AdminRecipe,
   AdminRecipes,
 } from "./pages/admin";
 
@@ -41,13 +42,13 @@ export const ADMIN_ROUTES: TRoute[] = [
   {
     path: "/admin/recipes/new",
     name: "recipes",
-    element: <></>,
+    element: <AdminRecipe />,
     isHidden: true,
   },
   {
     path: "/admin/recipes/edit/:recipeId",
     name: "recipes",
-    element: <></>,
+    element: <AdminRecipe />,
     isHidden: true,
   },
   {

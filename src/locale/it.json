@@ -63,6 +63,22 @@
     "category": "Categoria",
     "deleteRecipe": "Elimina ricetta",
     "recipeSuccessfullyDeleted": "Ricetta eliminata con successo",
-    "unableDeleteRecipe": "Impossibile eliminare la ricetta"
+    "unableDeleteRecipe": "Impossibile eliminare la ricetta",
+    "insertCategory": "Inserisci la categoria",
+    "insertTime": "Inserisci il tempo",
+    "insertPeople": "Inserisci le persone",
+    "recipe": "Ricetta",
+    "insertIngredient": "Inserisci l'ingrediente",
+    "insertQuantity": "Inserisci la quantità",
+    "add": "Aggiungi",
+    "noIngredients": "Nessun ingrediente",
+    "procedure": "Procedimento",
+    "noProcedure": "Nessun passaggio",
+    "insertStep": "Inserisci il passsaggio",
+    "unableLoadRecipe": "Impossibile caricare la ricetta",
+    "recipeSuccessfullyUpdated": "Ricetta aggiornata con successo",
+    "unableUpdateRecipe": "Impossibile aggiornare la ricetta",
+    "recipeSuccessfullyCreated": "Ricetta creata con successo",
+    "unableCreateRecipe": "Impossibile creare la ricetta"
   }
 }

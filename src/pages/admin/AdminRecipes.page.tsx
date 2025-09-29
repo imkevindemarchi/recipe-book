@@ -89,7 +89,7 @@ const AdminRecipes: FC = () => {
     ).then((response: THTTPResponse) => {
       if (response && response.hasSuccess) {
         const data: TRecipe[] = response.data.map((recipe: TRecipe) => {
-          return { ...recipe, category: recipe.category.label };
+          return { ...recipe, category: recipe.category?.label };
         });
         setTableData(data);
         setTable((prevState) => {
