@@ -210,7 +210,7 @@ const AdminIngredients: FC = () => {
   const modalComponent: ReactNode = (
     <Modal
       isOpen={deleteModal.show}
-      title={t("deleteIngredient", { name: deleteModal.item?.label })}
+      title={t("deleteIngredient")}
       onCancel={() => setDeleteModal(DEFAULT_DELETE_MODAL)}
       onSubmit={onDelete}
       cancelButtonText="no"
