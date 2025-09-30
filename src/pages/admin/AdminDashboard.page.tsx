@@ -73,7 +73,7 @@ const AdminDashboard: FC = () => {
     },
   ];
 
-  setPageTitle(t("recipes"));
+  setPageTitle(t("dashboard"));
 
   function splitRecipesForMonth(recipes: TRecipe[]): any {
     const data: any = {};
