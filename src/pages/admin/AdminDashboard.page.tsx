@@ -201,7 +201,7 @@ const AdminDashboard: FC = () => {
   );
 
   const totalRecipesComponent: ReactNode = (
-    <LiquidGlass className="flex flex-col gap-5 p-10" borderRadius={30}>
+    <LiquidGlass className="flex flex-col gap-5 p-10 h-full" borderRadius={30}>
       <span className="text-white font-bold text-xl">{t("totalRecipes")}</span>
       <span className="text-white font-bold text-[3em]">{totalRecipes}</span>
     </LiquidGlass>
@@ -234,7 +234,7 @@ const AdminDashboard: FC = () => {
     <div className="flex flex-col gap-5">
       {title}
       <div className="flex justify-between gap-10 w-full mobile:flex-col mobile:gap-5">
-        <div className="flex flex-col justify-between mobile:gap-5">
+        <div className="flex flex-col gap-5 justify-between mobile:gap-5">
           {totalRecipesComponent}
           {categoriesComponent}
         </div>

@@ -51,7 +51,7 @@ const DoughnutChart: FC<IProps> = ({ labels, data }) => {
     scales: {},
   };
 
-  return <Pie data={dataset} options={options} />;
+  return <Pie data={dataset} options={options} width={250} height={250} />;
 };
 
 export default DoughnutChart;
