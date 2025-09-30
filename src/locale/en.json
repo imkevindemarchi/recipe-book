@@ -95,6 +95,10 @@
     "october": "October",
     "november": "November",
     "december": "December",
-    "icon": "Icon"
+    "icon": "Icon",
+    "pageNotFound": "Oops, this page not found!",
+    "linkMightBeCorrupted": "The link might be corrupted",
+    "pageCouldBeRemoved": "or the page could be removed",
+    "goBackToHome": "Go back to home"
   }
 }
