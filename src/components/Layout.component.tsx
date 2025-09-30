@@ -11,6 +11,7 @@ import Navbar from "./Navbar.component";
 import Sidebar from "./Sidebar.component";
 import Hamburger from "./Hamburger.component";
 import Breadcrumb from "./Breadcrumb.component";
+import BackToTopButton from "./BackToTopButton.component";
 
 // Contexts
 import { SidebarContext, TSidebarContext } from "../providers/sidebar.provider";
@@ -47,6 +48,8 @@ const Layout: FC<IProps> = ({ children }) => {
 
   const breadcrumb: ReactNode = <Breadcrumb />;
 
+  const backToTopButton: ReactNode = <BackToTopButton />;
+
   const layout: ReactNode = (
     <div
       style={{ backgroundImage: `url("${wallpaperImg}")` }}
@@ -69,6 +72,7 @@ const Layout: FC<IProps> = ({ children }) => {
       {isLoginPage ? loginLayout : layout}
       {loader}
       {popup}
+      {backToTopButton}
     </div>
   );
 };

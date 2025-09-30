@@ -17,3 +17,4 @@ export { Add as AddIcon } from "./add.icon";
 export { Save as SaveIcon } from "./save.icon";
 export { Create as CreateIcon } from "./create.icon";
 export { Drag as DragIcon } from "./drag.icon";
+export { ArrowUp as ArrowUpIcon } from "./arrow-up.icon";
