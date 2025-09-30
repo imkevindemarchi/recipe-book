@@ -76,7 +76,7 @@ const Home: FC = () => {
   );
 
   const categoriesComponent: ReactNode = (
-    <div className="flex justify-between mt-60 gap-20 items-center">
+    <div className="flex justify-between mt-60 gap-20 items-center mobile:mt-20 w-full overflow-y-scroll mobile:gap-5">
       {categories.map((category: TCategoryCard, index: number) => {
         return <CategoryCard key={index} data={category} />;
       })}
@@ -91,12 +91,12 @@ const Home: FC = () => {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mobile:flex-col mobile:gap-10">
         <div className="flex flex-col">
           <span className="text-[3em]  text-white font-bold transition-all duration-300">
             {process.env.REACT_APP_WEBSITE_NAME}
           </span>
-          <div className="py-20">
+          <div className="py-20 mobile:py-10">
             <span className="transition-all text-white duration-300">
               {t("homeDescription")}
             </span>
