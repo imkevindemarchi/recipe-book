@@ -9,3 +9,4 @@ export {
   setToStorage,
   removeFromStorage,
 } from "./storage.util";
+export { getDateFromDB } from "./date.utils";

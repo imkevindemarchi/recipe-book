@@ -14,7 +14,7 @@ import { NavigateFunction, useNavigate, useParams } from "react-router";
 import { CATEGORY_API, IMAGE_API } from "../../api";
 
 // Assets
-import { AddIcon, CreateIcon, SaveIcon } from "../../assets/icons";
+import { CreateIcon, SaveIcon } from "../../assets/icons";
 
 // Components
 import { Button, Input, LiquidGlass, ImageSelector } from "../../components";

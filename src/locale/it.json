@@ -79,6 +79,21 @@
     "recipeSuccessfullyUpdated": "Ricetta aggiornata con successo",
     "unableUpdateRecipe": "Impossibile aggiornare la ricetta",
     "recipeSuccessfullyCreated": "Ricetta creata con successo",
-    "unableCreateRecipe": "Impossibile creare la ricetta"
+    "unableCreateRecipe": "Impossibile creare la ricetta",
+    "dashboard": "Dashboard",
+    "totalRecipes": "Ricette totali",
+    "period": "Periodo",
+    "january": "Gennaio",
+    "february": "Febbraio",
+    "march": "Marzo",
+    "april": "Aprile",
+    "may": "Maggio",
+    "june": "Giugno",
+    "july": "Luglio",
+    "august": "Agosto",
+    "september": "Settembre",
+    "october": "Ottobre",
+    "november": "Novembre",
+    "december": "Dicembre"
   }
 }

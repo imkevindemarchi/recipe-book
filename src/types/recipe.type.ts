@@ -8,7 +8,7 @@ export type TRecipe = {
   time: string;
   isFavourite: boolean;
   people: number | null;
-  createdDate: Date;
+  createdDate: Date | string;
   category: TCategory | null;
   procedure: string[] | null;
   ingredients: TRecipeIngredient[] | null;

@@ -4,3 +4,4 @@ export { default as AdminIngredients } from "./AdminIngredients.page";
 export { default as AdminIngredient } from "./AdminIngredient.page";
 export { default as AdminRecipes } from "./AdminRecipes.page";
 export { default as AdminRecipe } from "./AdminRecipe.page";
+export { default as AdminDashboard } from "./AdminDashboard.page";
