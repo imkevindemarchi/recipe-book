@@ -16,6 +16,7 @@ interface IProps {
   onDragStart?: () => void;
   onDragOver?: (event: any) => void;
   onDrop?: () => void;
+  style?: any;
 }
 
 const LiquidGlass: FC<IProps> = ({
@@ -34,6 +35,7 @@ const LiquidGlass: FC<IProps> = ({
   onDragStart,
   onDragOver,
   onDrop,
+  style,
 }) => {
   return (
     <div
@@ -52,6 +54,7 @@ const LiquidGlass: FC<IProps> = ({
         borderBottomLeftRadius: borderBottomRadius || borderRadius,
         borderBottomRightRadius: borderBottomRadius || borderRadius,
         zIndex,
+        ...style,
       }}
       className={`transition-all duration-300 ${className}`}
     >
