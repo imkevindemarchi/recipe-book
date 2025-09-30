@@ -233,8 +233,8 @@ const AdminDashboard: FC = () => {
   return (
     <div className="flex flex-col gap-5">
       {title}
-      <div className="flex justify-between gap-10 w-full">
-        <div className="flex flex-col justify-between">
+      <div className="flex justify-between gap-10 w-full mobile:flex-col mobile:gap-5">
+        <div className="flex flex-col justify-between mobile:gap-5">
           {totalRecipesComponent}
           {categoriesComponent}
         </div>
