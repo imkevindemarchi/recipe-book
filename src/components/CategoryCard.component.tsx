@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useTranslation } from "react-i18next";
+import { NavigateFunction, useNavigate } from "react-router";
 
 // Components
 import LiquidGlass from "./LiquidGlass.component";
@@ -17,19 +18,30 @@ interface IProps {
 
 const CategoryCard: FC<IProps> = ({ data }) => {
   const { t } = useTranslation();
+  const navigate: NavigateFunction = useNavigate();
+
+  function onGoToCategoryPage(): void {
+    navigate(`/categories/${data.id}`);
+  }
 
   return (
-    <LiquidGlass borderRadius={30} className="p-10 relative">
-      <div className="flex flex-col gap-5">
-        <div className="p-5 bg-white rounded-3xl flex justify-center items-center">
+    <LiquidGlass
+      onClick={onGoToCategoryPage}
+      borderRadius={30}
+      className="p-10 relative mobile:p-5 cursor-pointer hover:opacity-50"
+    >
+      <div className="flex flex-col gap-5 w-full h-full">
+        <div className="p-5 bg-white rounded-3xl flex justify-center items-center mobile:w-[20vh] mobile:h-full">
           <img
             src={`${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/images/${data.id}`}
             alt={t("imgNotFound")}
-            className="w-60"
+            className="w-60 mobile:w-full mobile:h-full"
           />
         </div>
-        <span className="text-white text-xl text-center">{data.label}</span>
-        <span className="text-white text-3xl text-center">
+        <span className="text-white text-xl text-center mobile:text-xl">
+          {data.label}
+        </span>
+        <span className="text-white text-3xl text-center mobile:text-2xl">
           {data.totalRecipes}
         </span>
       </div>
