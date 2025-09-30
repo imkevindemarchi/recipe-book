@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 
 // Assets
 import wallpaperImg from "../assets/images/login-wallpaper.jpg";
+import wallpaperImg2 from "../assets/images/wallpaper.png";
 
 // Components
 import Popup from "./Popup.component";
@@ -53,7 +54,11 @@ const Layout: FC<IProps> = ({ children }) => {
 
   const layout: ReactNode = (
     <div
-      style={{ backgroundImage: `url("${wallpaperImg}")` }}
+      style={{
+        backgroundImage: `url("${
+          isAdminSection ? wallpaperImg : wallpaperImg2
+        }")`,
+      }}
       className="min-h-[100vh] bg-cover"
     >
       {navbar}

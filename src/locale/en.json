@@ -99,6 +99,11 @@
     "pageNotFound": "Oops, this page not found!",
     "linkMightBeCorrupted": "The link might be corrupted",
     "pageCouldBeRemoved": "or the page could be removed",
-    "goBackToHome": "Go back to home"
+    "goBackToHome": "Go back to home",
+    "homeDescription": "Here you can find your favorite recipes or add new ones.",
+    "exploreRecipes": "Explore recipes",
+    "saved": "Saved",
+    "unableLoadRecipes": "Unable to load recipes",
+    "home": "Home"
   }
 }

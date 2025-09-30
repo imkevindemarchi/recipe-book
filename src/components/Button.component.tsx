@@ -13,6 +13,7 @@ interface IProps {
   type?: TButtonType;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   icon?: any;
+  className?: string;
 }
 
 const Button: FC<IProps> = ({
@@ -21,11 +22,12 @@ const Button: FC<IProps> = ({
   text,
   onClick,
   icon,
+  className,
 }) => {
   switch (variant) {
     case "liquid-glass": {
       return (
-        <LiquidGlass>
+        <LiquidGlass className={className}>
           <button
             onClick={onClick}
             type={type}

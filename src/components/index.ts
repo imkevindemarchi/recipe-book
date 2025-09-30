@@ -18,3 +18,4 @@ export { default as Textarea } from "./Textarea.component";
 export { default as BackToTopButton } from "./BackToTopButton.component";
 export { default as DoughnutChart } from "./DoughnutChart.component";
 export { default as LineChart } from "./LineChart.component";
+export { default as CategoryCard } from "./CategoryCard.component";

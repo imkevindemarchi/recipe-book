@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 // Pages
-import { Login, NotFound } from "./pages";
+import { Home, Login, NotFound } from "./pages";
 import {
   AdminCategories,
   AdminCategory,
@@ -30,6 +30,34 @@ export const ROUTES: TRoute[] = [
     path: "*",
     name: "not-found",
     element: <NotFound />,
+    isHidden: true,
+  },
+  {
+    path: "/",
+    name: "home",
+    element: <Home />,
+    isHidden: true,
+  },
+  {
+    path: "/categories/:categoryId",
+    name: "categories",
+    element: <></>,
+    isHidden: true,
+  },
+  {
+    path: "/recipes",
+    name: "recipes",
+    element: <></>,
+  },
+  {
+    path: "/saved",
+    name: "saved",
+    element: <></>,
+  },
+  {
+    path: "/recipes/:recipeId",
+    name: "recipes",
+    element: <></>,
     isHidden: true,
   },
 ];
