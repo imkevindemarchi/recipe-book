@@ -26,7 +26,10 @@ const NotFound: FC = () => {
       style={{ backgroundImage: `url("${wallpaperImg}")` }}
       className="w-full min-h-[100vh] bg-cover flex justify-center items-center"
     >
-      <LiquidGlass className="p-10 flex flex-col gap-5" borderRadius={30}>
+      <LiquidGlass
+        className="max-w-[90%] p-10 mobile:p-5 flex flex-col gap-5"
+        borderRadius={30}
+      >
         <div className="flex flex-col text-center">
           <span className="text-white text-[5em] font-bold">404</span>
           <span className="text-xl text-white">{t("pageNotFound")}</span>
@@ -41,7 +44,7 @@ const NotFound: FC = () => {
           variant="liquid-glass"
           onClick={onGoBackToHome}
           text={t("goBackToHome")}
-        ></Button>
+        />
       </LiquidGlass>
     </div>
   );
