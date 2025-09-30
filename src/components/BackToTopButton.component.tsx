@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 
 // Assets
 import { ArrowUpIcon } from "../assets/icons";
@@ -6,8 +6,14 @@ import { ArrowUpIcon } from "../assets/icons";
 // Components
 import LiquidGlass from "./LiquidGlass.component";
 
+// Contexts
+import { SidebarContext, TSidebarContext } from "../providers/sidebar.provider";
+
 const BackToTopButton: FC = () => {
   const [state, setState] = useState(false);
+  const { isOpen: isSidebarOpen }: TSidebarContext = useContext(
+    SidebarContext
+  ) as TSidebarContext;
 
   function checkScroll() {
     if (!state && window.pageYOffset > 20) setState(true);
@@ -20,7 +26,7 @@ const BackToTopButton: FC = () => {
     <LiquidGlass
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       style={{
-        zIndex: state ? 900 : -900,
+        zIndex: state && !isSidebarOpen ? 100 : -900,
       }}
       className="p-3 fixed bottom-7 right-7 cursor-pointer hover:opacity-50"
     >
