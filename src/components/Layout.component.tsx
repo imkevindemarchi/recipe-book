@@ -68,7 +68,7 @@ const Layout: FC<IProps> = ({ children }) => {
   );
 
   return (
-    <div>
+    <div className="w-full h-full relative">
       {isLoginPage ? loginLayout : layout}
       {loader}
       {popup}

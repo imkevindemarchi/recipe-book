@@ -28,7 +28,7 @@ const BackToTopButton: FC = () => {
       style={{
         zIndex: state && !isSidebarOpen ? 100 : -900,
       }}
-      className="p-3 fixed bottom-7 right-7 cursor-pointer hover:opacity-50"
+      className="p-3 fixed bottom-7 right-7 mobile:bottom-4 mobile:right-4 cursor-pointer hover:opacity-50"
     >
       <ArrowUpIcon className="text-white text-3xl" />
     </LiquidGlass>
