@@ -7,6 +7,32 @@ import { THTTPResponse, TRecipe } from "../types";
 const TABLE = "recipes";
 
 export const RECIPE_API = {
+  getAll: async (): Promise<THTTPResponse> => {
+    try {
+      const {
+        data,
+        count: totalRecords,
+        error,
+      } = await supabase.from(TABLE).select("*", { count: "exact" });
+
+      if (!data || error)
+        return {
+          hasSuccess: false,
+        };
+
+      return {
+        data,
+        hasSuccess: true,
+        totalRecords: totalRecords && totalRecords,
+      };
+    } catch (error) {
+      console.error("🚀 ~ getAll - error:", error);
+      return {
+        hasSuccess: false,
+      };
+    }
+  },
+
   getAllWithFilters: async (
     from: number,
     to: number,
