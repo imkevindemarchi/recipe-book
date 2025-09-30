@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext } from "react";
+import React, { FC, ReactNode, useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 
 // Assets
@@ -26,6 +26,7 @@ const Layout: FC<IProps> = ({ children }) => {
     isOpen: isSidebarOpen,
     onStateChange: onSidebarStateChange,
   }: TSidebarContext = useContext(SidebarContext) as TSidebarContext;
+  const [is404Path, setIs404Path] = useState<boolean>(false);
 
   const currentPathSection: string = pathname.split("/")[1];
 
@@ -67,9 +68,17 @@ const Layout: FC<IProps> = ({ children }) => {
     </div>
   );
 
+  useEffect(() => {
+    const currentPageTitle: string = document.title.split("-")[1];
+    const is404Path: boolean = currentPageTitle?.trim() === "404";
+    setIs404Path(is404Path);
+
+    // eslint-disable-next-line
+  }, [document.title, pathname]);
+
   return (
     <div className="w-full h-full relative">
-      {isLoginPage ? loginLayout : layout}
+      {isLoginPage ? loginLayout : !is404Path ? layout : children}
       {loader}
       {popup}
       {backToTopButton}
