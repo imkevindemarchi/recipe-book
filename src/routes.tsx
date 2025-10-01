@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 // Pages
-import { Home, Login, NotFound } from "./pages";
+import { Home, Login, NotFound, Recipes } from "./pages";
 import {
   AdminCategories,
   AdminCategory,
@@ -47,7 +47,7 @@ export const ROUTES: TRoute[] = [
   {
     path: "/recipes",
     name: "recipes",
-    element: <></>,
+    element: <Recipes />,
   },
   {
     path: "/saved",

@@ -21,3 +21,6 @@ export { ArrowUp as ArrowUpIcon } from "./arrow-up.icon";
 export { Location as LocationIcon } from "./location.icon";
 export { Github as GithubIcon } from "./github.icon";
 export { LinkedIn as LinkedInIcon } from "./linkedin.icon";
+export { Sad as SadIcon } from "./sad.icon";
+export { Clock as ClockIcon } from "./clock.icon";
+export { Person as PersonIcon } from "./person.icon";
