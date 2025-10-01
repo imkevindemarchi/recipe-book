@@ -18,3 +18,6 @@ export { Save as SaveIcon } from "./save.icon";
 export { Create as CreateIcon } from "./create.icon";
 export { Drag as DragIcon } from "./drag.icon";
 export { ArrowUp as ArrowUpIcon } from "./arrow-up.icon";
+export { Location as LocationIcon } from "./location.icon";
+export { Github as GithubIcon } from "./github.icon";
+export { LinkedIn as LinkedInIcon } from "./linkedin.icon";

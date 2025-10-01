@@ -13,6 +13,7 @@ import Sidebar from "./Sidebar.component";
 import Hamburger from "./Hamburger.component";
 import Breadcrumb from "./Breadcrumb.component";
 import BackToTopButton from "./BackToTopButton.component";
+import Footer from "./Footer.component";
 
 // Contexts
 import { SidebarContext, TSidebarContext } from "../providers/sidebar.provider";
@@ -52,6 +53,8 @@ const Layout: FC<IProps> = ({ children }) => {
 
   const backToTopButton: ReactNode = <BackToTopButton />;
 
+  const footer: ReactNode = <Footer />;
+
   const layout: ReactNode = (
     <div
       style={{
@@ -65,11 +68,12 @@ const Layout: FC<IProps> = ({ children }) => {
       {hamburger}
       {sidebar}
       <div
-        className={`px-60 py-10 w-full min-h-[100vh] mobile:min-h-[110vh] pt-40 mobile:px-5 mobile:pt-28 flex flex-col gap-5`}
+        className={`px-60 py-10 pb-[50vh] w-full min-h-[100vh] mobile:min-h-[110vh] pt-40 mobile:px-5 mobile:pt-28 flex flex-col gap-5`}
       >
         {breadcrumb}
         {children}
       </div>
+      {!isAdminSection && footer}
     </div>
   );
 
