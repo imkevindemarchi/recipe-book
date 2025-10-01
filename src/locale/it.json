@@ -104,6 +104,10 @@
     "exploreRecipes": "Esplora ricette",
     "saved": "Salvati",
     "unableLoadRecipes": "Impossibile caricare le ricette",
-    "home": "Home"
+    "home": "Home",
+    "links": "Collegamenti",
+    "socialNetworks": "Social Networks",
+    "github": "Github",
+    "linkedin": "LinkedIn"
   }
 }
