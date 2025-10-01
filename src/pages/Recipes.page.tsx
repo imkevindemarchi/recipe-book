@@ -90,41 +90,6 @@ const Recipes: FC = () => {
           </Grid>
         );
       })}
-      {filteredRecipes.map((recipe: TRecipe, index: number) => {
-        return (
-          <Grid key={index} size={{ xs: 12, md: 3 }}>
-            <RecipeCard data={recipe} />
-          </Grid>
-        );
-      })}
-      {filteredRecipes.map((recipe: TRecipe, index: number) => {
-        return (
-          <Grid key={index} size={{ xs: 12, md: 3 }}>
-            <RecipeCard data={recipe} />
-          </Grid>
-        );
-      })}
-      {filteredRecipes.map((recipe: TRecipe, index: number) => {
-        return (
-          <Grid key={index} size={{ xs: 12, md: 3 }}>
-            <RecipeCard data={recipe} />
-          </Grid>
-        );
-      })}
-      {filteredRecipes.map((recipe: TRecipe, index: number) => {
-        return (
-          <Grid key={index} size={{ xs: 12, md: 3 }}>
-            <RecipeCard data={recipe} />
-          </Grid>
-        );
-      })}
-      {filteredRecipes.map((recipe: TRecipe, index: number) => {
-        return (
-          <Grid key={index} size={{ xs: 12, md: 3 }}>
-            <RecipeCard data={recipe} />
-          </Grid>
-        );
-      })}
     </Grid>
   );
 
