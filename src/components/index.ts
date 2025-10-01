@@ -20,3 +20,4 @@ export { default as DoughnutChart } from "./DoughnutChart.component";
 export { default as LineChart } from "./LineChart.component";
 export { default as CategoryCard } from "./CategoryCard.component";
 export { default as Footer } from "./Footer.component";
+export { default as RecipeCard } from "./RecipeCard.component";

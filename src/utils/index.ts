@@ -10,3 +10,4 @@ export {
   removeFromStorage,
 } from "./storage.util";
 export { getDateFromDB } from "./date.utils";
+export { sortArray } from "./array.utils";
