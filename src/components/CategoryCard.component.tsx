@@ -31,7 +31,10 @@ const CategoryCard: FC<IProps> = ({ data }) => {
       className="p-10 relative mobile:p-5 cursor-pointer hover:opacity-50"
     >
       <div className="flex flex-col gap-5 w-full h-full">
-        <LiquidGlass className="p-5 bg-white rounded-3xl flex justify-center items-center mobile:w-[20vh] mobile:h-full">
+        <LiquidGlass
+          borderRadius={30}
+          className="p-5 bg-white rounded-3xl flex justify-center items-center mobile:w-[20vh] mobile:h-full"
+        >
           <img
             src={`${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/images/${data.id}`}
             alt={t("imgNotFound")}
