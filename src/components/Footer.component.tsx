@@ -51,12 +51,12 @@ const Footer: FC = () => {
       <div className="flex flex-col gap-2">
         <a
           href={`mailto: ${process.env.REACT_APP_EMAIL}`}
-          className="flex flex-row items-center text-base gap-1 text-white hover:text-primary transition-all duration-300"
+          className="flex flex-row items-center text-base gap-2 text-white hover:text-primary transition-all duration-300"
         >
           <EmailIcon className="text-2xl" />
           <span>{process.env.REACT_APP_EMAIL}</span>
         </a>
-        <div className="flex flex-row items-center text-base gap-1 text-white">
+        <div className="flex flex-row items-center text-base gap-2 text-white">
           <LocationIcon className="text-2xl" />
           <span className="text-white">{process.env.REACT_APP_COUNTRY}</span>
         </div>
@@ -66,7 +66,7 @@ const Footer: FC = () => {
 
   const links: ReactNode = (
     <Column title={t("links")}>
-      <div className="flex justify-center flex-col items-center">
+      <div className="flex justify-center flex-col items-center mobile:justify-start mobile:items-start">
         {ROUTES.map((route: TRoute, index: number) => {
           const isRouteHidden: boolean = route.isHidden ? true : false;
           const routePathSection: string = route.path.split("/")[1];
@@ -118,13 +118,15 @@ const Footer: FC = () => {
   );
 
   const copyright: ReactNode = (
-    <span className="text-sm text-white opacity-80">{copyrightText}</span>
+    <span className="text-sm text-white opacity-80 mobile:text-center">
+      {copyrightText}
+    </span>
   );
 
   return (
-    <div className="mx-20 relative">
-      <LiquidGlass className="absolute bottom-20 w-full py-20 px-20 pb-10 flex flex-col gap-10">
-        <div className="flex justify-between">
+    <div className="mx-20 relative mobile:mx-5">
+      <LiquidGlass className="absolute bottom-20 w-full py-20 px-20 pb-10 flex flex-col gap-10 mobile:px-5 mobile:py-10 mobile:bottom-10">
+        <div className="flex justify-between mobile:flex-col mobile:gap-10">
           {informations}
           {links}
           {socialNetworks}
