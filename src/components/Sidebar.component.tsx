@@ -89,12 +89,13 @@ const Sidebar: FC<IProps> = ({ isAdminSection }) => {
   }
 
   const logo: ReactNode = (
-    <img
-      src={logoImg}
-      alt={t("imgNotFound")}
-      onClick={goToHome}
-      className="w-28 h-3w-28 hover:opacity-50 transition-all duration-300 cursor-pointer"
-    />
+    <LiquidGlass borderRadius={20} onClick={goToHome}>
+      <img
+        src={logoImg}
+        alt={t("imgNotFound")}
+        className="w-28 h-28 hover:opacity-50 transition-all duration-300 cursor-pointer"
+      />
+    </LiquidGlass>
   );
 
   const routesComponent: ReactNode = (

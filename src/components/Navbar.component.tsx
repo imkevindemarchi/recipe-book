@@ -80,12 +80,18 @@ const Navbar: FC<IProps> = ({ isAdminSection }) => {
   }
 
   const logo: ReactNode = (
-    <img
-      src={logoImg}
-      alt={t("imgNotFound")}
+    <LiquidGlass
+      borderRadius={20}
       onClick={goToHome}
-      className="w-[5%] hover:opacity-50 transition-all duration-300 cursor-pointer"
-    />
+      className={`${isOnTopOfPage ? "w-20 h-20" : "w-14 h-14"}`}
+    >
+      <img
+        src={logoImg}
+        alt={t("imgNotFound")}
+        onClick={goToHome}
+        className="w-full hover:opacity-50 transition-all duration-300 cursor-pointer"
+      />
+    </LiquidGlass>
   );
 
   const routesComponent: ReactNode = (
