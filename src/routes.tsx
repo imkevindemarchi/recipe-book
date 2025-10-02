@@ -1,7 +1,15 @@
 import { ReactNode } from "react";
 
 // Pages
-import { Home, Login, NotFound, Recipe, Recipes, Saved } from "./pages";
+import {
+  Category,
+  Home,
+  Login,
+  NotFound,
+  Recipe,
+  Recipes,
+  Saved,
+} from "./pages";
 import {
   AdminCategories,
   AdminCategory,
@@ -41,7 +49,7 @@ export const ROUTES: TRoute[] = [
   {
     path: "/categories/:categoryId",
     name: "categories",
-    element: <></>,
+    element: <Category />,
     isHidden: true,
   },
   {
