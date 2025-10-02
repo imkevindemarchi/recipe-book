@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext } from "react";
+import React, { FC, ReactNode, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavigateFunction, useLocation, useNavigate } from "react-router";
 
@@ -45,6 +45,7 @@ const Navbar: FC<IProps> = ({ isAdminSection }) => {
   const { onOpen: openPopup }: TPopupContext = useContext(
     PopupContext
   ) as TPopupContext;
+  const [isOnTopOfPage, setIsOnTopOfPage] = useState<boolean>(true);
 
   const currentPaths: string[] = pathname.split("/");
   const currentPathSection: string = currentPaths[isAdminSection ? 2 : 1];
@@ -83,7 +84,7 @@ const Navbar: FC<IProps> = ({ isAdminSection }) => {
       src={logoImg}
       alt={t("imgNotFound")}
       onClick={goToHome}
-      className="w-28 h-3w-28 hover:opacity-50 transition-all duration-300 cursor-pointer"
+      className="w-[5%] hover:opacity-50 transition-all duration-300 cursor-pointer"
     />
   );
 
@@ -131,13 +132,19 @@ const Navbar: FC<IProps> = ({ isAdminSection }) => {
     </LiquidGlass>
   );
 
+  window.addEventListener("scroll", () => {
+    setIsOnTopOfPage(window.scrollY === 0);
+  });
+
   return (
     <LiquidGlass
       borderRadius={0}
       borderBottomRadius={50}
       blur={10}
       style={{ zIndex: 100 }}
-      className="w-full h-36 fixed flex items-center px-20 justify-between mobile:hidden"
+      className={`w-full fixed flex items-center px-20 justify-between mobile:hidden ${
+        isOnTopOfPage ? "h-36" : "h-16"
+      }`}
     >
       <div className="flex items-center gap-5">
         {logo}
