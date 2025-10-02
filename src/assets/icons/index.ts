@@ -24,3 +24,5 @@ export { LinkedIn as LinkedInIcon } from "./linkedin.icon";
 export { Sad as SadIcon } from "./sad.icon";
 export { Clock as ClockIcon } from "./clock.icon";
 export { Person as PersonIcon } from "./person.icon";
+export { BookMark as BookMarkIcon } from "./book-mark.icon";
+export { BookMarkFilled as BookMarkFilledIcon } from "./book-mark-filled.icon";

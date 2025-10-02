@@ -27,7 +27,7 @@ const Button: FC<IProps> = ({
   switch (variant) {
     case "liquid-glass": {
       return (
-        <LiquidGlass className={className}>
+        <LiquidGlass className={`w-fit ${className}`}>
           <button
             onClick={onClick}
             type={type}

@@ -106,7 +106,7 @@ const Navbar: FC<IProps> = ({ isAdminSection }) => {
             <div
               key={index}
               onClick={() => onRouteChange(route.path)}
-              className="px-5 py-2 cursor-pointer"
+              className="px-5 py-2 cursor-pointer hover:opacity-50 transition-all duration-300"
             >
               <span className="text-white font-bold">
                 {t(route.name).toUpperCase()}
@@ -132,7 +132,10 @@ const Navbar: FC<IProps> = ({ isAdminSection }) => {
   );
 
   return (
-    <div
+    <LiquidGlass
+      borderRadius={0}
+      borderBottomRadius={50}
+      blur={10}
       style={{ zIndex: 100 }}
       className="w-full h-36 fixed flex items-center px-20 justify-between mobile:hidden"
     >
@@ -144,7 +147,7 @@ const Navbar: FC<IProps> = ({ isAdminSection }) => {
         {languageSelector}
         {isAdminSection && logoutIcon}
       </div>
-    </div>
+    </LiquidGlass>
   );
 };
 
