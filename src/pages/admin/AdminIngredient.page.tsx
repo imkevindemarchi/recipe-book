@@ -13,6 +13,9 @@ import { NavigateFunction, useNavigate, useParams } from "react-router";
 // Api
 import { INGREDIENT_API } from "../../api";
 
+// Assets
+import { CreateIcon, SaveIcon } from "../../assets/icons";
+
 // Components
 import { Button, Input, LiquidGlass } from "../../components";
 
@@ -201,6 +204,13 @@ const AdminIngredient: FC = () => {
     <Button
       type="submit"
       variant="liquid-glass"
+      icon={
+        isEditMode ? (
+          <SaveIcon className="text-xl text-white" />
+        ) : (
+          <CreateIcon className="text-xl text-white" />
+        )
+      }
       text={t(isEditMode ? "save" : "create")}
     />
   );

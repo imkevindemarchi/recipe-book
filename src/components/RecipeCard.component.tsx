@@ -60,6 +60,7 @@ const RecipeCard: FC<IProps> = ({ data }) => {
       variant="liquid-glass"
       text={t("viewRecipe")}
       onClick={onGoToRecipe}
+      className="w-full"
     />
   );
 

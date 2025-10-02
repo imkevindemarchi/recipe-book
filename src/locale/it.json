@@ -109,6 +109,10 @@
     "socialNetworks": "Social Networks",
     "github": "Github",
     "linkedin": "LinkedIn",
-    "viewRecipe": "Vedi ricetta"
+    "viewRecipe": "Vedi ricetta",
+    "goBack": "Torna indietro",
+    "stepN": "Step {{step}}",
+    "previousStep": "Step precedente",
+    "nextStep": "Step successivo"
   }
 }

@@ -1,4 +1,4 @@
-import React, { ReactNode, StrictMode } from "react";
+import React, { ReactNode } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router";
 
@@ -22,19 +22,17 @@ const root = ReactDOM.createRoot(
 );
 
 const app: ReactNode = (
-  <StrictMode>
-    <BrowserRouter>
-      <PopupProvider>
-        <LoaderProvider>
-          <AuthProvider>
-            <SidebarProvider>
-              <App />
-            </SidebarProvider>
-          </AuthProvider>
-        </LoaderProvider>
-      </PopupProvider>
-    </BrowserRouter>
-  </StrictMode>
+  <BrowserRouter>
+    <PopupProvider>
+      <LoaderProvider>
+        <AuthProvider>
+          <SidebarProvider>
+            <App />
+          </SidebarProvider>
+        </AuthProvider>
+      </LoaderProvider>
+    </PopupProvider>
+  </BrowserRouter>
 );
 
 root.render(app);

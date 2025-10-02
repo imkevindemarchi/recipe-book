@@ -36,6 +36,7 @@ const LiquidGlass: FC<IProps> = ({
   onDragOver,
   onDrop,
   style,
+  ...props
 }) => {
   return (
     <div
@@ -49,7 +50,6 @@ const LiquidGlass: FC<IProps> = ({
         background: backgroundColor,
         border: noBorder ? "" : `1px solid ${borderColor}`,
         borderRadius,
-        boxShadow: "0 8px 20px rgba(0, 0, 0, 0.10)",
         backdropFilter: `blur(${blur}px)`,
         borderBottomLeftRadius: borderBottomRadius || borderRadius,
         borderBottomRightRadius: borderBottomRadius || borderRadius,
@@ -57,6 +57,7 @@ const LiquidGlass: FC<IProps> = ({
         ...style,
       }}
       className={`transition-all duration-300 ${className}`}
+      {...props}
     >
       {children}
     </div>

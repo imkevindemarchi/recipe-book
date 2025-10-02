@@ -16,7 +16,7 @@ interface IProps {
   data: TCategoryCard;
 }
 
-const CategoryCard: FC<IProps> = ({ data }) => {
+const CategoryCard: FC<IProps> = ({ data, ...props }) => {
   const { t } = useTranslation();
   const navigate: NavigateFunction = useNavigate();
 
@@ -29,6 +29,7 @@ const CategoryCard: FC<IProps> = ({ data }) => {
       onClick={onGoToCategoryPage}
       borderRadius={30}
       className="p-10 relative mobile:p-5 cursor-pointer hover:opacity-50"
+      {...props}
     >
       <div className="flex flex-col gap-5 w-full h-full">
         <LiquidGlass

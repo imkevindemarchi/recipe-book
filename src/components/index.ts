@@ -21,3 +21,7 @@ export { default as LineChart } from "./LineChart.component";
 export { default as CategoryCard } from "./CategoryCard.component";
 export { default as Footer } from "./Footer.component";
 export { default as RecipeCard } from "./RecipeCard.component";
+export { default as GoBackButton } from "./GoBackButton.component";
+export { default as IngredientCard } from "./IngredientCard.component";
+export { default as Stepper } from "./Stepper.component";
+export { default as ProgressBar } from "./ProgressBar.component";

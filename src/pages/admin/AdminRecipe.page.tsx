@@ -530,7 +530,13 @@ const AdminRecipe: FC = () => {
         {!isEditMode && (
           <CustomButton
             label={t(isEditMode ? "save" : "create")}
-            icon={<SaveIcon className="text-white text-xl" />}
+            icon={
+              isEditMode ? (
+                <SaveIcon className="text-xl text-white" />
+              ) : (
+                <CreateIcon className="text-xl text-white" />
+              )
+            }
           />
         )}
       </LiquidGlass>
@@ -659,9 +665,9 @@ const AdminRecipe: FC = () => {
             onDragOver={onDragOver}
             onDrop={() => onDragDrop(index)}
             key={index}
-            className="p-5 flex items-center justify-between gap-5 flex-wrap overflow-hidden w-full"
+            className="px-5 py-2 flex items-center justify-between gap-5 flex-wrap overflow-hidden w-full cursor-grab"
           >
-            <DragIcon className="text-white text-xl mobile:hidden" />
+            <DragIcon className="text-white text-3xl mobile:hidden" />
             <div className="max-w-[75%] flex flex-wrap">
               <span className="text-white">{step}</span>
             </div>
