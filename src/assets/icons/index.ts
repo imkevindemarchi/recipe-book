@@ -26,3 +26,4 @@ export { Clock as ClockIcon } from "./clock.icon";
 export { Person as PersonIcon } from "./person.icon";
 export { BookMark as BookMarkIcon } from "./book-mark.icon";
 export { BookMarkFilled as BookMarkFilledIcon } from "./book-mark-filled.icon";
+export { Web as WebIcon } from "./web.icon";

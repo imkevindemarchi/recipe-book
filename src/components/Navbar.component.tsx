@@ -7,7 +7,7 @@ import { AUTH_API } from "../api";
 
 // Assets
 import logoImg from "../assets/images/logo.png";
-import { LogoutIcon } from "../assets/icons";
+import { LoginIcon, LogoutIcon, WebIcon } from "../assets/icons";
 
 // Components
 import LiquidGlass from "./LiquidGlass.component";
@@ -79,6 +79,14 @@ const Navbar: FC<IProps> = ({ isAdminSection }) => {
     setIsLoading(false);
   }
 
+  function onLogin(): void {
+    navigate("/admin");
+  }
+
+  function onWeb(): void {
+    navigate("/");
+  }
+
   const logo: ReactNode = (
     <LiquidGlass
       borderRadius={20}
@@ -138,6 +146,24 @@ const Navbar: FC<IProps> = ({ isAdminSection }) => {
     </LiquidGlass>
   );
 
+  const loginIcon: ReactNode = (
+    <LiquidGlass
+      onClick={onLogin}
+      className="w-10 h-10 flex justify-center items-center hover:opacity-50 cursor-pointer"
+    >
+      <LoginIcon className="text-white text-xl" />
+    </LiquidGlass>
+  );
+
+  const webIcon: ReactNode = (
+    <LiquidGlass
+      onClick={onWeb}
+      className="w-10 h-10 flex justify-center items-center hover:opacity-50 cursor-pointer"
+    >
+      <WebIcon className="text-white text-xl" />
+    </LiquidGlass>
+  );
+
   window.addEventListener("scroll", () => {
     setIsOnTopOfPage(window.scrollY === 0);
   });
@@ -158,6 +184,7 @@ const Navbar: FC<IProps> = ({ isAdminSection }) => {
       </div>
       <div className="flex items-center gap-5">
         {languageSelector}
+        {!isAdminSection ? loginIcon : webIcon}
         {isAdminSection && logoutIcon}
       </div>
     </LiquidGlass>

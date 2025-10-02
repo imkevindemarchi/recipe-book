@@ -7,7 +7,7 @@ import { AUTH_API } from "../api";
 
 // Assets
 import logoImg from "../assets/images/logo.png";
-import { LoginIcon, LogoutIcon } from "../assets/icons";
+import { LoginIcon, LogoutIcon, WebIcon } from "../assets/icons";
 
 // Components
 import LiquidGlass from "./LiquidGlass.component";
@@ -88,6 +88,11 @@ const Sidebar: FC<IProps> = ({ isAdminSection }) => {
     onSidebarStateChange();
   }
 
+  function onWeb(): void {
+    navigate("/");
+    onSidebarStateChange();
+  }
+
   const logo: ReactNode = (
     <LiquidGlass borderRadius={20} onClick={goToHome}>
       <img
@@ -133,13 +138,21 @@ const Sidebar: FC<IProps> = ({ isAdminSection }) => {
     <LanguageSelector value={language} onChange={onLanguageChange} />
   );
 
-  const loginLogoutIcon: ReactNode = (
+  const loginIcon: ReactNode = (
     <LiquidGlass className="w-10 h-10 flex justify-center items-center">
-      {isAdminSection ? (
-        <LogoutIcon onClick={onLogout} className="w-6 h-6 text-white" />
-      ) : (
-        <LoginIcon onClick={onLogin} className="w-6 h-6 text-white" />
-      )}
+      <LoginIcon onClick={onLogin} className="w-6 h-6 text-white" />
+    </LiquidGlass>
+  );
+
+  const webIcon: ReactNode = (
+    <LiquidGlass className="w-10 h-10 flex justify-center items-center">
+      <WebIcon onClick={onWeb} className="w-6 h-6 text-white" />
+    </LiquidGlass>
+  );
+
+  const logoutIcon: ReactNode = (
+    <LiquidGlass className="w-10 h-10 flex justify-center items-center">
+      <LogoutIcon onClick={onLogout} className="w-6 h-6 text-white" />
     </LiquidGlass>
   );
 
@@ -157,7 +170,8 @@ const Sidebar: FC<IProps> = ({ isAdminSection }) => {
       {routesComponent}
       <div className="flex items-center gap-5">
         {languageSelector}
-        {loginLogoutIcon}
+        {!isAdminSection ? loginIcon : webIcon}
+        {isAdminSection && logoutIcon}
       </div>
     </LiquidGlass>
   );
