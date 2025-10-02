@@ -91,7 +91,7 @@ const Recipe: FC = () => {
         }}
         className="absolute flex justify-center items-center w-full h-full"
       >
-        <LiquidGlass blur={10} className="px-10 py-5">
+        <LiquidGlass blur={10} className="px-10 py-5 mobile:px-5 mobile:py-2">
           <span
             className={`font-bold text-white uppercase text-3xl ${
               (recipe?.name?.length as number) > 20
@@ -109,12 +109,12 @@ const Recipe: FC = () => {
   const bookMark: ReactNode = (
     <LiquidGlass
       onClick={onFavouriteHandler}
-      className="absolute right-10 mt-[-10vh] w-16 h-16 flex justify-center items-center cursor-pointer hover:opacity-50"
+      className="absolute right-10 mt-[-10vh] w-16 h-16 flex justify-center items-center cursor-pointer hover:opacity-50 mobile:right-5 mobile:w-14 mobile:h-14 mobile:mt-5"
     >
       {recipe?.isFavourite ? (
-        <BookMarkFilledIcon className="text-white text-[3em]" />
+        <BookMarkFilledIcon className="text-white text-[3em] mobile:text-3xl" />
       ) : (
-        <BookMarkIcon className="text-white text-[3em]" />
+        <BookMarkIcon className="text-white text-[3em] mobile:text-3xl" />
       )}
     </LiquidGlass>
   );
@@ -122,7 +122,7 @@ const Recipe: FC = () => {
   const ingredients: ReactNode = (
     <div className="w-full flex flex-col gap-5">
       <span className="text-white text-3xl font-bold">{t("ingredients")}</span>
-      <LiquidGlass className="w-fit max-h-[50vh] overflow-y-scroll flex flex-col gap-5 p-10">
+      <LiquidGlass className="w-fit max-h-[50vh] overflow-y-scroll flex flex-col gap-5 p-10 mobile:w-full">
         {recipe?.ingredients?.map(
           (ingredient: TRecipeIngredient, index: number) => {
             return <IngredientCard key={index} data={ingredient} />;
@@ -154,9 +154,9 @@ const Recipe: FC = () => {
           {bookMark}
         </div>
       </div>
-      <Grid container columnSpacing={10}>
-        <Grid size={{ xs: 2 }}>{ingredients}</Grid>
-        <Grid size={{ xs: 10 }}>{stepper}</Grid>
+      <Grid container columnSpacing={10} rowSpacing={5}>
+        <Grid size={{ xs: 12, md: 2 }}>{ingredients}</Grid>
+        <Grid size={{ xs: 12, md: 10 }}>{stepper}</Grid>
       </Grid>
     </div>
   );
