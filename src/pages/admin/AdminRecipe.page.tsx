@@ -147,7 +147,7 @@ const AdminRecipe: FC = () => {
 
   const isEditMode: boolean = recipeId ? true : false;
 
-  setPageTitle(isEditMode ? t("editCategory") : t("newCategory"));
+  setPageTitle(isEditMode ? t("editRecipe") : t("newRecipe"));
 
   async function getData(): Promise<void> {
     setIsLoading(true);

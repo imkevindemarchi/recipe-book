@@ -113,6 +113,10 @@
     "goBack": "Go back",
     "stepN": "Step {{step}}",
     "previousStep": "Previous step",
-    "nextStep": "Next step"
+    "nextStep": "Next step",
+    "newRecipe": "New recipe",
+    "editRecipe": "Edit recipe",
+    "noAvailableIngredients": "No available ingredient",
+    "noAvailableSteps": "No available step"
   }
 }

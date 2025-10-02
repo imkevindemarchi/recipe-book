@@ -7,7 +7,7 @@ import { Grid } from "@mui/material";
 import { RECIPE_API } from "../api";
 
 // Assets
-import { BookMarkFilledIcon, BookMarkIcon } from "../assets/icons";
+import { BookMarkFilledIcon, BookMarkIcon, SadIcon } from "../assets/icons";
 
 // Components
 import {
@@ -123,10 +123,19 @@ const Recipe: FC = () => {
     <div className="w-full flex flex-col gap-5">
       <span className="text-white text-3xl font-bold">{t("ingredients")}</span>
       <LiquidGlass className="w-fit max-h-[50vh] overflow-y-scroll flex flex-col gap-5 p-10 mobile:w-full">
-        {recipe?.ingredients?.map(
-          (ingredient: TRecipeIngredient, index: number) => {
-            return <IngredientCard key={index} data={ingredient} />;
-          }
+        {recipe?.ingredients && recipe.ingredients.length > 0 ? (
+          recipe.ingredients.map(
+            (ingredient: TRecipeIngredient, index: number) => {
+              return <IngredientCard key={index} data={ingredient} />;
+            }
+          )
+        ) : (
+          <div className="w-full flex justify-center items-center gap-5">
+            <SadIcon className="text-[3em] text-white" />
+            <span className="text-white text-sm">
+              {t("noAvailableIngredients")}
+            </span>
+          </div>
         )}
       </LiquidGlass>
     </div>
