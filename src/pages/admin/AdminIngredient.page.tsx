@@ -25,10 +25,10 @@ import { LoaderContext, TLoaderContext } from "../../providers/loader.provider";
 
 // Types
 import { THTTPResponse, TIngredient } from "../../types";
+import { TValidation } from "../../utils/validation.util";
 
 // Utils
-import { setPageTitle } from "../../utils";
-import { TValidation, validateFormField } from "../../utils/validation.util";
+import { setPageTitle, validateFormField } from "../../utils";
 
 const DEFAULT_STATE: TIngredient = {
   id: null,
@@ -190,7 +190,6 @@ const AdminIngredient: FC = () => {
 
   const icon: ReactNode = (
     <Input
-      autoFocus
       value={formData.icon}
       onChange={(event: ChangeEvent<HTMLInputElement>) =>
         onInputChange("icon", event.target.value)

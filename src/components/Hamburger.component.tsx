@@ -12,7 +12,7 @@ const Hamburger: FC<IProps> = ({ onClick, isActive }) => {
     <button
       onClick={onClick}
       style={{ zIndex: 999 }}
-      className={`flex flex-col top-7 left-7 justify-around w-10 h-10 fixed desktop:hidden`}
+      className={`mobile:flex flex-col top-7 left-7 justify-around w-10 h-10 fixed hidden`}
     >
       {lines.map((line: number) => (
         <div

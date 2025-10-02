@@ -43,7 +43,7 @@ const Stepper: FC<IProps> = ({ steps }) => {
       }`}
     >
       {steps && steps.length > 0 ? (
-        <>
+        <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-5 h-full">
             {progressBar}
             <span className="font-bold text-white">
@@ -77,7 +77,7 @@ const Stepper: FC<IProps> = ({ steps }) => {
               </LiquidGlass>
             )}
           </div>
-        </>
+        </div>
       ) : (
         <div className="w-full flex justify-center items-center gap-5">
           <SadIcon className="text-[3em] text-white" />

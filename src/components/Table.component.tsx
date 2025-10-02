@@ -130,7 +130,7 @@ const Table: FC<IProps> = ({
           <span className="text-white opacity-80">{t("total")}:</span>
           <span className="text-white font-bold">{total}</span>
         </div>
-        <div className="flex flex-row w-[7%] justify-between mobile:w-[35%]">
+        <div className="flex flex-row desktop:w-[7%] w-[12%] justify-between mobile:w-[35%]">
           <LiquidGlass
             className={`transition-all duration-300 ${
               !canGoPrevious ? "opacity-60 cursor-not-allowed" : ""
@@ -140,7 +140,7 @@ const Table: FC<IProps> = ({
               disabled={!canGoPrevious}
               onClick={async () => await onGoPreviousPage()}
               className={`flex justify-center items-center w-10 h-10 p-2 rounded-lg ${
-                !canGoPrevious ? "cursor-not-allowed" : ""
+                !canGoPrevious ? "opacity-50 cursor-default" : ""
               }`}
             >
               <ArrowLeftIcon className="text-3xl text-white" />
@@ -155,7 +155,7 @@ const Table: FC<IProps> = ({
               disabled={!canGoNext}
               onClick={async () => await onGoNextPage()}
               className={`flex justify-center items-center w-10 h-10 p-2 rounded-lg ${
-                !canGoNext ? "cursor-not-allowed" : ""
+                !canGoNext ? "opacity-50 cursor-default" : ""
               }`}
             >
               <ArrowRightIcon className="text-3xl text-white" />

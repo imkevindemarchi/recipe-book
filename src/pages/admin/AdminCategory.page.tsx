@@ -25,14 +25,14 @@ import { LoaderContext, TLoaderContext } from "../../providers/loader.provider";
 
 // Types
 import { TCategory, THTTPResponse } from "../../types";
+import { TValidation } from "../../utils/validation.util";
 
 // Utils
-import { setPageTitle } from "../../utils";
 import {
-  TValidation,
+  setPageTitle,
   validateFormField,
   validateFormImage,
-} from "../../utils/validation.util";
+} from "../../utils";
 
 type TImage = { image: File | null };
 

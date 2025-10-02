@@ -51,7 +51,7 @@ const Footer: FC = () => {
       <div className="flex flex-col gap-2">
         <a
           href={`mailto: ${process.env.REACT_APP_EMAIL}`}
-          className="flex flex-row items-center text-base gap-2 text-white hover:text-primary transition-all duration-300"
+          className="flex flex-row items-center text-base gap-2 text-white hover:opacity-50 transition-all duration-300"
         >
           <EmailIcon className="text-2xl" />
           <span>{process.env.REACT_APP_EMAIL}</span>

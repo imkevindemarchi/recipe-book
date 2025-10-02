@@ -40,14 +40,14 @@ import {
   TRecipeIngredient,
 } from "../../types";
 import { IAutocompleteValue } from "../../components/Autocomplete.component";
+import { TValidation } from "../../utils/validation.util";
 
 // Utils
-import { setPageTitle } from "../../utils";
 import {
-  TValidation,
+  setPageTitle,
   validateFormField,
   validateFormImage,
-} from "../../utils/validation.util";
+} from "../../utils";
 
 type TImage = { image: File | null };
 
@@ -152,26 +152,26 @@ const AdminRecipe: FC = () => {
   async function getData(): Promise<void> {
     setIsLoading(true);
 
-    await Promise.resolve(CATEGORY_API.getAll()).then(
-      (response: THTTPResponse) => {
-        if (response && response.hasSuccess) setCategories(response.data);
-        else openPopup(t("unableLoadCategories"), "error");
-      }
-    );
-
-    if (isEditMode)
-      await Promise.all([
-        RECIPE_API.get(recipeId as string),
-        INGREDIENT_API.getAll(),
-      ]).then((response: THTTPResponse[]) => {
+    await Promise.all([CATEGORY_API.getAll(), INGREDIENT_API.getAll()]).then(
+      (response: THTTPResponse[]) => {
         if (response[0] && response[0].hasSuccess)
-          setFormData({ ...response[0].data, image: response[0].data.id });
-        else openPopup(t("unableLoadRecipe"), "error");
+          setCategories(response[0].data);
+        else openPopup(t("unableLoadCategories"), "error");
 
         if (response[1] && response[1].hasSuccess)
           setIngredients(response[1].data);
         else openPopup(t("unableLoadIngredients"), "error");
-      });
+      }
+    );
+
+    if (isEditMode)
+      await Promise.resolve(RECIPE_API.get(recipeId as string)).then(
+        (response: THTTPResponse) => {
+          if (response && response.hasSuccess)
+            setFormData({ ...response.data, image: response.data.id });
+          else openPopup(t("unableLoadRecipe"), "error");
+        }
+      );
 
     setIsLoading(false);
   }
@@ -580,7 +580,6 @@ const AdminRecipe: FC = () => {
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
             <Input
-              type="number"
               value={ingredientsFormData.quantity}
               onChange={(event: ChangeEvent<HTMLInputElement>) =>
                 onIngredientsInputChange("quantity", event.target.value)

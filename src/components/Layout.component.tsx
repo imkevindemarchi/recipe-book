@@ -69,7 +69,7 @@ const Layout: FC<IProps> = ({ children }) => {
       {sidebar}
       <div
         className={`px-60 py-10 w-full min-h-[100vh] mobile:min-h-[110vh] pt-40 mobile:px-5 mobile:pt-28 flex flex-col gap-5 ${
-          !isAdminSection ? "pb-[50vh] mobile:pb-[100vh]" : "pb-[10vh] mobile:pb-20"
+          !isAdminSection ? "pb-[60vh] mobile:pb-[100vh]" : "pb-[10vh] mobile:pb-20"
         }`}
       >
         {breadcrumb}

@@ -87,7 +87,7 @@ const Saved: FC = () => {
         .filter((recipe: TRecipe) => recipe.isFavourite)
         .map((recipe: TRecipe, index: number) => {
           return (
-            <Grid key={index} size={{ xs: 12, md: 3 }}>
+            <Grid key={index} size={{ xs: 12, lg: 4, xl: 3 }}>
               <RecipeCard data={recipe} />
             </Grid>
           );

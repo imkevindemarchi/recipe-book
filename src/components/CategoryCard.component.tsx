@@ -28,18 +28,18 @@ const CategoryCard: FC<IProps> = ({ data, ...props }) => {
     <LiquidGlass
       onClick={onGoToCategoryPage}
       borderRadius={30}
-      className="p-10 relative mobile:p-5 cursor-pointer hover:opacity-50"
+      className="p-10  relative mobile:p-5 cursor-pointer hover:opacity-50"
       {...props}
     >
       <div className="flex flex-col gap-5 w-full h-full">
         <LiquidGlass
           borderRadius={30}
-          className="p-5 bg-white rounded-3xl flex justify-center items-center mobile:w-[20vh] mobile:h-full"
+          className="p-5 bg-white rounded-3xl flex justify-center items-center h-40 w-40 mobile:w-[20vh] mobile:h-full"
         >
           <img
             src={`${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/images/${data.id}`}
             alt={t("imgNotFound")}
-            className="w-60 mobile:w-full mobile:h-full"
+            className="w-full h-full"
           />
         </LiquidGlass>
         <span className="text-white text-xl text-center mobile:text-xl">

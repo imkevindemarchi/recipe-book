@@ -10,7 +10,7 @@ module.exports = {
       white: "#ffffff",
     },
     screens: {
-      desktop: { min: "1100px" },
+      desktop: { min: "1500px" },
       mobile: { max: "800px" },
     },
   },
