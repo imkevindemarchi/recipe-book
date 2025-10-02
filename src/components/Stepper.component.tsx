@@ -34,7 +34,10 @@ const Stepper: FC<IProps> = ({ steps }) => {
   );
 
   return steps && steps.length > 0 ? (
-    <LiquidGlass blur={20} className="p-5 h-full flex flex-col justify-between">
+    <LiquidGlass
+      blur={20}
+      className="p-5 h-full flex flex-col justify-between mobile:py-10 mobile:gap-20"
+    >
       <div className="flex flex-col gap-5 h-full">
         {progressBar}
         <span className="font-bold text-white">
@@ -49,19 +52,19 @@ const Stepper: FC<IProps> = ({ steps }) => {
       <div className="w-full flex justify-between">
         <LiquidGlass
           onClick={() => currentStep > 1 && onStepHandler(currentStep - 1)}
-          className={`flex items-center gap-2 underline underline-offset-4 transition-all duration-300 px-5 py-2 ${
+          className={`flex items-center gap-2 underline underline-offset-4 transition-all duration-300 px-5 py-2 mobile:w-14 mobile:h-14 mobile:p-0 mobile:justify-center ${
             currentStep > 1
               ? "text-white cursor-pointer hover:opacity-50 mobile:hover:opacity-100"
               : "text-white cursor-default opacity-50"
           }`}
         >
-          <ArrowLeftIcon />
-          <span>{t("previousStep")}</span>
+          <ArrowLeftIcon className="mobile:text-3xl" />
+          <span className="mobile:hidden">{t("previousStep")}</span>
         </LiquidGlass>
         {currentStep < steps.length && (
           <LiquidGlass
             onClick={() => onStepHandler(currentStep + 1)}
-            className="flex items-center gap-2 underline underline-offset-4 transition-all duration-300 text-white cursor-pointer hover:opacity-50 mobile:hover:opacity-100 px-5 py-2"
+            className="flex items-center gap-2 underline underline-offset-4 transition-all duration-300 text-white cursor-pointer hover:opacity-50 mobile:hover:opacity-100 px-5 py-2 mobile:w-14 mobile:h-14 mobile:p-0 mobile:justify-center"
           >
             <span className="mobile:hidden">{t("nextStep")}</span>
             <ArrowRightIcon className="mobile:text-3xl" />
