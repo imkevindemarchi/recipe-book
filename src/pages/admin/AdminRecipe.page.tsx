@@ -674,7 +674,7 @@ const AdminRecipe: FC = () => {
           >
             <DragIcon className="text-white text-3xl mobile:hidden" />
             <div className="max-w-[75%] flex flex-wrap">
-              <span className="text-white">{step}</span>
+              <span className="text-white text-center">{step}</span>
             </div>
             <LiquidGlass
               onClick={() => onDeleteStep(step)}

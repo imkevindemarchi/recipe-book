@@ -28,7 +28,7 @@ const RecipeCard: FC<IProps> = ({ data }) => {
     <img
       src={`${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/images/${data.id}`}
       alt={t("imgNotFound")}
-      className="rounded-3xl w-full h-full"
+      className="rounded-3xl w-full h-44"
     />
   );
 
