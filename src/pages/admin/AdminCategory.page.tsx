@@ -8,7 +8,12 @@ import React, {
   useState,
 } from "react";
 import { useTranslation } from "react-i18next";
-import { NavigateFunction, useNavigate, useParams } from "react-router";
+import {
+  NavigateFunction,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router";
 
 // Api
 import { CATEGORY_API, IMAGE_API } from "../../api";
@@ -69,6 +74,7 @@ const AdminCategory: FC = () => {
   ) as TLoaderContext;
   const { categoryId } = useParams();
   const navigate: NavigateFunction = useNavigate();
+  const { pathname } = useLocation();
 
   const isEditMode: boolean = categoryId ? true : false;
 
@@ -250,7 +256,7 @@ const AdminCategory: FC = () => {
     getData();
 
     // eslint-disable-next-line
-  }, []);
+  }, [pathname]);
 
   return (
     <form
