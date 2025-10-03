@@ -8,7 +8,12 @@ import React, {
   useState,
 } from "react";
 import { useTranslation } from "react-i18next";
-import { NavigateFunction, useNavigate, useParams } from "react-router";
+import {
+  NavigateFunction,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router";
 import { Grid } from "@mui/material";
 
 // Api
@@ -144,6 +149,7 @@ const AdminRecipe: FC = () => {
     STEPS_ERRORS_DEFAULT_STATE
   );
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
+  const { pathname } = useLocation();
 
   const isEditMode: boolean = recipeId ? true : false;
 
@@ -706,7 +712,7 @@ const AdminRecipe: FC = () => {
     getData();
 
     // eslint-disable-next-line
-  }, []);
+  }, [pathname]);
 
   return (
     <div className="flex flex-col gap-10">
