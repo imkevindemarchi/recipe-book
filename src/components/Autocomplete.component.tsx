@@ -146,7 +146,9 @@ const Autocomplete: FC<IProps> = ({
                           }}
                           className="cursor-pointer px-5 py-2 hover:opacity-50 transition-all duration-300"
                         >
-                          <span className="text-white">{element.label}</span>
+                          <span className="text-white whitespace-nowrap">
+                            {element.label}
+                          </span>
                         </div>
                       );
                     }

@@ -43,14 +43,14 @@ const Stepper: FC<IProps> = ({ steps }) => {
       }`}
     >
       {steps && steps.length > 0 ? (
-        <div className="flex flex-col gap-10">
+        <div className="h-full flex flex-col gap-10 justify-between">
           <div className="flex flex-col gap-5 h-full">
             {progressBar}
             <span className="font-bold text-white">
               {t("stepN", { step: currentStep })}
             </span>
-            <div className="flex h-full w-full justify-center items-center">
-              <span className="text-white text-center">
+            <div className="flex h-full justify-center items-center">
+              <span className="text-white text-center w-[50%]">
                 {steps[currentStep - 1]}
               </span>
             </div>

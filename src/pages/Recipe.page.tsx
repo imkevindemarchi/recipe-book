@@ -113,9 +113,9 @@ const Recipe: FC = () => {
       className="absolute right-10 desktop:mt-[-10vh] mt-[-13vh] w-16 h-16 flex justify-center items-center cursor-pointer hover:opacity-50 mobile:right-5 mobile:w-14 mobile:h-14 mobile:mt-5"
     >
       {recipe?.isFavourite ? (
-        <BookMarkFilledIcon className="text-primary text-[3em] mobile:text-3xl" />
+        <BookMarkFilledIcon className="text-white text-[3em] mobile:text-3xl" />
       ) : (
-        <BookMarkIcon className="text-primary text-[3em] mobile:text-3xl" />
+        <BookMarkIcon className="text-white text-[3em] mobile:text-3xl" />
       )}
     </LiquidGlass>
   );

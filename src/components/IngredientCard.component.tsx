@@ -17,7 +17,7 @@ const IngredientCard: FC<IProps> = ({ data, ...props }) => {
       className="flex flex-col px-5 py-2"
       {...props}
     >
-      <div className="flex items-center gap-2 whitespace-nowrap">
+      <div className="flex items-center gap-2 whitespace-nowrap flex-wrap">
         <span className="text-white text-2xl">{data.icon}</span>
         <span className="text-white">{data.quantity}</span>
         <span className="text-white">{data.label}</span>
