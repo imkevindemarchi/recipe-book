@@ -134,7 +134,7 @@ const Autocomplete: FC<IProps> = ({
                 borderRadius={20}
                 className="flex flex-col gap-5 justify-center items-center w-full py-2"
               >
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 max-h-60 overflow-y-scroll">
                   {elabData.map(
                     (element: IAutocompleteValue, index: number) => {
                       return (
