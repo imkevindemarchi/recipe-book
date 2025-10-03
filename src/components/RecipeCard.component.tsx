@@ -49,7 +49,7 @@ const RecipeCard: FC<IProps> = ({ data }) => {
       {data.people && (
         <div className="flex items-center gap-2">
           <PersonIcon className="text-white opacity-80" />
-          <span className="text-white">{data.time}</span>
+          <span className="text-white">{data.people}</span>
         </div>
       )}
     </div>
