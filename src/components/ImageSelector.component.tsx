@@ -48,7 +48,7 @@ const ImageSelector: FC<IProps> = ({ onChange, error }) => {
       type="file"
       id="file-upload"
       onChange={onInputChange}
-      accept="image/png, image/gif, image/jpeg, image/jpg"
+      accept="image/jpg"
     />
   );
 
