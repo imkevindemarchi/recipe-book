@@ -11,7 +11,7 @@ export const IMAGE_API = {
     try {
       const { data, error } = await supabase.storage
         .from(TABLE)
-        .upload(id, file);
+        .upload(id, file, { contentType: "image/jpg" });
 
       if (!data || error)
         return {
