@@ -117,6 +117,7 @@
     "newRecipe": "Nuova ricetta",
     "editRecipe": "Modifica ricetta",
     "noAvailableIngredients": "Nessun ingrediente disponibile",
-    "noAvailableSteps": "Nessun passaggio disponibile"
+    "noAvailableSteps": "Nessun passaggio disponibile",
+    "noResultFound": "Nessun risultato"
   }
 }
