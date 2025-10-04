@@ -117,6 +117,7 @@
     "newRecipe": "New recipe",
     "editRecipe": "Edit recipe",
     "noAvailableIngredients": "No available ingredient",
-    "noAvailableSteps": "No available step"
+    "noAvailableSteps": "No available step",
+    "noResultFound": "No result found"
   }
 }

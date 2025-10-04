@@ -7,6 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { useTranslation } from "react-i18next";
 
 // Components
 import LiquidGlass from "./LiquidGlass.component";
@@ -55,6 +56,7 @@ const Autocomplete: FC<IProps> = ({
   error = { isValid: true },
   data,
 }) => {
+  const { t } = useTranslation();
   const inputRef = useRef<HTMLDivElement>(null);
   const [dropdown, setDropdown] = useState<boolean>(false);
   const [state, setState] = useState<string | null>(value?.label);
@@ -135,23 +137,29 @@ const Autocomplete: FC<IProps> = ({
                 className="flex flex-col gap-5 justify-center items-center w-full py-2"
               >
                 <div className="flex flex-col gap-2 max-h-60 overflow-y-scroll">
-                  {elabData.map(
-                    (element: IAutocompleteValue, index: number) => {
-                      return (
-                        <div
-                          key={index}
-                          onClick={() => {
-                            onChange(element);
-                            setDropdown(false);
-                          }}
-                          className="cursor-pointer px-5 py-2 hover:opacity-50 transition-all duration-300"
-                        >
-                          <span className="text-white whitespace-nowrap">
-                            {element.label}
-                          </span>
-                        </div>
-                      );
-                    }
+                  {elabData && elabData.length > 0 ? (
+                    elabData.map(
+                      (element: IAutocompleteValue, index: number) => {
+                        return (
+                          <div
+                            key={index}
+                            onClick={() => {
+                              onChange(element);
+                              setDropdown(false);
+                            }}
+                            className="cursor-pointer px-5 py-2 hover:opacity-50 transition-all duration-300"
+                          >
+                            <span className="text-white whitespace-nowrap">
+                              {element.label}
+                            </span>
+                          </div>
+                        );
+                      }
+                    )
+                  ) : (
+                    <span className="text-white whitespace-nowrap px-5 py-2">
+                      {t("noResultFound")}
+                    </span>
                   )}
                 </div>
               </LiquidGlass>
