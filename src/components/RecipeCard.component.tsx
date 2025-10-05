@@ -65,7 +65,7 @@ const RecipeCard: FC<IProps> = ({ data }) => {
   );
 
   return (
-    <LiquidGlass className="p-10 flex flex-col gap-5">
+    <LiquidGlass className="p-10 flex flex-col justify-between gap-5 h-[50vh] mobile:h-full">
       {image}
       {name}
       {timeAndPeople}
