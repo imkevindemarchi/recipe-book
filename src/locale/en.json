@@ -118,6 +118,7 @@
     "editRecipe": "Edit recipe",
     "noAvailableIngredients": "No available ingredient",
     "noAvailableSteps": "No available step",
-    "noResultFound": "No result found"
+    "noResultFound": "No result found",
+    "unableLogin": "Unable log-in"
   }
 }

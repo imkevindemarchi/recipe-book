@@ -118,6 +118,7 @@
     "editRecipe": "Modifica ricetta",
     "noAvailableIngredients": "Nessun ingrediente disponibile",
     "noAvailableSteps": "Nessun passaggio disponibile",
-    "noResultFound": "Nessun risultato"
+    "noResultFound": "Nessun risultato",
+    "unableLogin": "Impossibile accedere"
   }
 }

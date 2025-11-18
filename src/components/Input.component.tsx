@@ -1,10 +1,10 @@
 import React, {
   ChangeEvent,
   FC,
-  ReactElement,
   useEffect,
   useRef,
   useState,
+  ReactNode,
 } from "react";
 
 // Components
@@ -23,8 +23,8 @@ type TInputAutoComplete = "email" | "current-password";
 interface IProps {
   autoFocus?: boolean;
   placeholder: string;
-  startIcon?: ReactElement;
-  endIcon?: ReactElement;
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
   type?: TInputType;
   name?: string;
   value: any;

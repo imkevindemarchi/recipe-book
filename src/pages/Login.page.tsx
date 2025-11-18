@@ -14,7 +14,7 @@ import { AUTH_API } from "../api";
 
 // Assets
 import wallpaperImg from "../assets/images/login-wallpaper.jpg";
-import logoImg from "../assets/images/logo.png";
+import iconImg from "../assets/images/icon.png";
 import {
   EmailIcon,
   LockIcon,
@@ -98,7 +98,7 @@ const Login: FC = () => {
                 navigate("/admin");
                 setToStorage("token", response.data?.access_token);
                 setIsUserAuthenticated(true);
-              }
+              } else openPopup(t("unableLogin"), "error");
             })
           );
         } else openPopup(t("invalidEnteredEmail"), "warning");
@@ -115,7 +115,7 @@ const Login: FC = () => {
 
   const title: ReactNode = (
     <div className="flex flex-row items-center">
-      <img src={logoImg} className="w-32 mobile:w-28" alt={t("imgNotFound")} />
+      <img src={iconImg} className="w-32 mobile:w-28" alt={t("imgNotFound")} />
       <span className="font-bold text-white text-[3em] mobile:text-3xl">
         {t("welcome")}
       </span>
